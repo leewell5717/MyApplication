@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">My Application</string>
+    <string name="customactivityoncrash_error_activity_error_occurred_explanation">An unexpected error occurred.\nSorry for the inconvenience.</string>
+    <string name="customactivityoncrash_error_activity_close_app">关闭APP</string>
+    <string name="customactivityoncrash_error_activity_restart_app">重启APP</string>
+    <string name="customactivityoncrash_error_activity_error_details">错误详情</string>
+    <string name="customactivityoncrash_error_activity_error_details_close">关闭</string>
+
+    <string name="expand">展开</string>
+    <string name="collapse">收起</string>
+    <string name="expand_collapse_content">The story of a Chinese couple at Oxford University who first met each other as deskmate in middle school and recently married each other has gone viral, southcn.com reported.
+        Zhou Si, the groom, and Chen Mengge, the bride, married each other on Aug 18 and will together go to Oxford University to pursue their doctoral degrees later this year.
+        They were deskmate in middle school and then both were admitted by same high school but not in same class.</string>
+</resources>

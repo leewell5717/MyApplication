@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+
+    <data>
+
+        <import type="java.lang.String"/>
+        <import type="java.util.List"/>
+        <import type="java.util.Map"/>
+
+        <variable
+            name="user"
+            type="liwei.com.databind.UserBean"/>
+        <variable
+            name="btnName"
+            type="String"/>
+
+        <variable
+            name="handle"
+            type="liwei.com.databind.HandleEvent"/>
+
+        <variable
+            name="list"
+            type="List&lt;String&gt;"/>
+        <variable
+            name="map"
+            type="Map&lt;Integer,String&gt;"/>
+    </data>
+
+    <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{(view)->handle.myClick1(view,btnName)}"
+            android:onLongClick="@{handle::myClick3}"
+            android:text="@{btnName}"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handle::myClick2}"
+            android:text="@{list[0]}"/>
+        <TextView
+            android:layout_marginTop="5dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="@{handle::myClick2}"
+            android:text="@{map[0]}"/>
+        <EditText
+            android:id="@+id/edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</layout>
