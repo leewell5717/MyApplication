@@ -37,7 +37,7 @@ import liwei.com.other.Float.FloatActivity;
 import liwei.com.other.IJKPlayer.IJKPlayerActivity;
 import liwei.com.other.PasswordView.PasswordActivity;
 import liwei.com.other.RoundLayout.RoundLayoutActivity;
-import liwei.com.other.TakePictuer.TakePictureActivity;
+import liwei.com.other.TakePictuer.CameraActivity;
 import liwei.com.other.design.DesignActivity;
 import liwei.com.other.gauss.GaussActivity;
 import liwei.com.other.kotlin.KotlinActivity;
@@ -172,7 +172,7 @@ public class UtilsMainActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.take_picture_btn:
-                intent = new Intent(UtilsMainActivity.this, TakePictureActivity.class);
+                intent = new Intent(UtilsMainActivity.this, CameraActivity.class);
                 startActivity(intent);
                 break;
         }

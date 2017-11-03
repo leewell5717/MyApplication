@@ -4,22 +4,32 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <Button
-        android:id="@+id/take_picture_btn"
+        android:id="@+id/open_camera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="拍照"/>
     <Button
-        android:id="@+id/select_album_btn"
+        android:id="@+id/open_camera_cut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拍照并裁剪"/>
+    <Button
+        android:id="@+id/pick_image"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="选择相册"/>
+    <Button
+        android:id="@+id/pick_image_cut"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="选择并裁剪"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="选择的图片是："/>
-    <ImageView
-        android:id="@+id/picture"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:contentDescription="@null"/>
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:id="@+id/recycler" />
 </LinearLayout>

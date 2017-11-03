@@ -52,7 +52,18 @@
         <activity android:name="liwei.com.other.RoundLayout.RoundLayoutActivity"/>
         <activity android:name="liwei.com.other.PasswordView.PasswordActivity"/>
         <activity android:name=".other.Float.FloatActivity"/>
-        <activity android:name=".other.TakePictuer.TakePictureActivity"/>
+        <activity android:name=".other.TakePictuer.CameraActivity"/>
+
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="liwei.com"
+            android:grantUriPermissions="true"
+            android:exported="false">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/filepath" />
+        </provider>
     </application>
 
 </manifest>

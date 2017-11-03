@@ -19,7 +19,7 @@ android {
     }
 
     buildTypes {
-        debug{
+        debug {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
@@ -32,6 +32,7 @@ android {
     sourceSets {
         main {
             jniLibs.srcDirs = ['libs']
+            res.srcDirs = ['src/main/res', 'src/main/res/xml']
         }
     }
 
