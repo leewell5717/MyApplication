@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#242424"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <liwei.com.other.shimmer.view.ShimmerTextView
+        android:id="@+id/shimmer_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ShimmerTextView"
+        android:gravity="center"
+        android:textColor="#444"
+        android:textSize="30sp" />
+
+    <liwei.com.other.shimmer.view.ShimmerButton
+        android:id="@+id/shimmer_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="ShimmerButton"
+        android:layout_marginTop="20dp"
+        android:background="#333333"
+        android:gravity="center"
+        android:textColor="#444"
+        android:textSize="30sp" />
+
+    <liwei.com.other.shimmer.facebook.ShimmerFrameLayout
+        android:id="@+id/shimmer_view_container"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        shimmer:duration="3000">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical">
+            <ImageView
+                android:layout_width="64dp"
+                android:layout_height="64dp"
+                android:src="@drawable/fb_logo"
+                android:contentDescription="@null"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:gravity="center"
+                android:text="Facebook’s mission is to give people the power to share and make the world more open and connected." />
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:background="#333333"
+                android:text="登录系统/退出系统" />
+            <ProgressBar
+                android:id="@+id/progress"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="3dp"
+                android:background="#aaaaaa"
+                style="?android:attr/progressBarStyleHorizontal"/>
+        </LinearLayout>
+    </liwei.com.other.shimmer.facebook.ShimmerFrameLayout>
+
+    <Button
+        android:id="@+id/toggle_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="#333333"
+        android:text="开启/关闭动画" />
+</LinearLayout>

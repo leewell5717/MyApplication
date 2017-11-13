@@ -53,6 +53,11 @@
         <activity android:name="liwei.com.other.PasswordView.PasswordActivity"/>
         <activity android:name=".other.Float.FloatActivity"/>
         <activity android:name=".other.TakePictuer.CameraActivity"/>
+        <activity android:name="liwei.com.other.GreenDao.GreenDaoActivity"/>
+        <activity android:name="liwei.com.other.webview.WebviewActivity" android:screenOrientation="landscape"/>
+        <activity android:name="liwei.com.other.webview.LoginActivity" android:screenOrientation="landscape"
+            android:theme="@style/MyDialog"/>
+        <activity android:name="liwei.com.other.shimmer.ShimmerActivity"/>
 
 
         <provider

@@ -23,6 +23,11 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="选择并裁剪"/>
+    <Button
+        android:id="@+id/upload_image_btn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="上传图片"/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

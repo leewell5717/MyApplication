@@ -1,6 +1,8 @@
 package liwei.com.other.CustomProgressBar;
 
+import android.annotation.TargetApi;
 import android.app.Activity;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -119,6 +121,7 @@ public class ProgressBarActivity extends Activity {
         }
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onResume() {
         super.onResume();
@@ -126,6 +129,7 @@ public class ProgressBarActivity extends Activity {
         horizontalProgressBar.resumeProgressAnimation();
     }
 
+    @TargetApi(Build.VERSION_CODES.KITKAT)
     @Override
     protected void onPause() {
         super.onPause();

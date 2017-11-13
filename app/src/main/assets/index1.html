@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        function originToJs(msg) {
+            alert("这是js弹窗，传递过来的参数是：" + msg);
+        }
+
+        function JsToOrigin() {
+            MyTest.nativaFun("原生你好！");
+        }
+
+    </script>
+</head>
+<body>
+<br/>
+<button onclick="JsToOrigin()">js调用原生弹窗</button>
+</body>
+</html>

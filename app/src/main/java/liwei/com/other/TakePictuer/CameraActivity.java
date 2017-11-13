@@ -33,6 +33,7 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 import liwei.com.R;
+import liwei.com.Utils;
 
 /**
  * @author liwei
@@ -104,11 +105,13 @@ public class CameraActivity extends Activity implements OnClickListener {
 		Button pickImage = (Button) findViewById(R.id.pick_image);
 		Button openCameraCut = (Button) findViewById(R.id.open_camera_cut);
 		Button pickImageCut = (Button) findViewById(R.id.pick_image_cut);
+		Button uploadImageBtn = (Button) findViewById(R.id.upload_image_btn);
 		RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler);
 		openCamera.setOnClickListener(this);
 		pickImage.setOnClickListener(this);
 		openCameraCut.setOnClickListener(this);
 		pickImageCut.setOnClickListener(this);
+		uploadImageBtn.setOnClickListener(this);
 
 		adapter = new ImageRecyclerAdapter(this,imgList);
 		LinearLayoutManager llm = new LinearLayoutManager(this,LinearLayoutManager.HORIZONTAL,false);
@@ -150,42 +153,55 @@ public class CameraActivity extends Activity implements OnClickListener {
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.open_camera: // 拍照
-			if(isGranted && !isRefused){
-				takePicture(false);
-			}else if(!isGranted && !isRefused){
-				checkPermission();
-			}else if(!isGranted && isRefused){
-				showSettingDialog();
-			}
-			break;
-		case R.id.open_camera_cut: // 拍照裁剪
-			if(isGranted && !isRefused){
-				takePicture(true);
-			}else if(!isGranted && !isRefused){
-				checkPermission();
-			}else if(!isGranted && isRefused){
-				showSettingDialog();
-			}
-			break;
-		case R.id.pick_image: // 选择系统相册
-			if(isGranted && !isRefused){
-				openAlbum(false);
-			}else if(!isGranted && !isRefused){
-				checkPermission();
-			}else if(!isGranted && isRefused){
-				showSettingDialog();
-			}
-			break;
-		case R.id.pick_image_cut: // 选择相册裁剪
-			if(isGranted && !isRefused){
-				openAlbum(true);
-			}else if(!isGranted && !isRefused){
-				checkPermission();
-			}else if(!isGranted && isRefused){
-				showSettingDialog();
-			}
-			break;
+			case R.id.open_camera: // 拍照
+				if(isGranted && !isRefused){
+					takePicture(false);
+				}else if(!isGranted && !isRefused){
+					checkPermission();
+				}else if(!isGranted && isRefused){
+					showSettingDialog();
+				}
+				break;
+			case R.id.open_camera_cut: // 拍照裁剪
+				if(isGranted && !isRefused){
+					takePicture(true);
+				}else if(!isGranted && !isRefused){
+					checkPermission();
+				}else if(!isGranted && isRefused){
+					showSettingDialog();
+				}
+				break;
+			case R.id.pick_image: // 选择系统相册
+				if(isGranted && !isRefused){
+					openAlbum(false);
+				}else if(!isGranted && !isRefused){
+					checkPermission();
+				}else if(!isGranted && isRefused){
+					showSettingDialog();
+				}
+				break;
+			case R.id.pick_image_cut: // 选择相册裁剪
+				if(isGranted && !isRefused){
+					openAlbum(true);
+				}else if(!isGranted && !isRefused){
+					checkPermission();
+				}else if(!isGranted && isRefused){
+					showSettingDialog();
+				}
+				break;
+			case R.id.upload_image_btn:
+				if(imgList.size() == 0){
+					Toast.makeText(CameraActivity.this,"请添加图片",Toast.LENGTH_SHORT).show();
+					return;
+				}
+				//图片转化成String
+				List<String> temp = new ArrayList<>();
+				for(Bitmap bit : imgList){
+					temp.add(Utils.bitmapToString(bit));
+				}
+				//上传
+
+				break;
 		}
 	}
 

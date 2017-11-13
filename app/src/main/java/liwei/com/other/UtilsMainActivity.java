@@ -34,6 +34,7 @@ import liwei.com.R;
 import liwei.com.other.CustomProgressBar.ProgressBarActivity;
 import liwei.com.other.ExpandableTextview.ExpandableTextviewMainActivity;
 import liwei.com.other.Float.FloatActivity;
+import liwei.com.other.GreenDao.GreenDaoActivity;
 import liwei.com.other.IJKPlayer.IJKPlayerActivity;
 import liwei.com.other.PasswordView.PasswordActivity;
 import liwei.com.other.RoundLayout.RoundLayoutActivity;
@@ -41,6 +42,8 @@ import liwei.com.other.TakePictuer.CameraActivity;
 import liwei.com.other.design.DesignActivity;
 import liwei.com.other.gauss.GaussActivity;
 import liwei.com.other.kotlin.KotlinActivity;
+import liwei.com.other.shimmer.ShimmerActivity;
+import liwei.com.other.webview.WebviewActivity;
 
 /**
  * 一般工具样式主页
@@ -66,6 +69,12 @@ public class UtilsMainActivity extends Activity {
     public Button floatWindowBtn;
     @BindView(R.id.take_picture_btn)
     public Button takePictureBtn;
+    @BindView(R.id.open_web_btn)
+    public Button openWebBtn;
+    @BindView(R.id.green_dao_btn)
+    public Button greenDaoBtn;
+    @BindView(R.id.shimmer_btn)
+    public Button shimmerBtn;
 
     @BindView(R.id.origin)
     public TextView origin;
@@ -131,7 +140,8 @@ public class UtilsMainActivity extends Activity {
     }
 
     @OnClick({R.id.progress_bar_btn,R.id.gauss_blur_btn,R.id.expand_collapse_btn,R.id.ijkplayer_btn,R.id.design_btn,
-            R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn})
+            R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn,
+            R.id.open_web_btn,R.id.green_dao_btn,R.id.shimmer_btn})
     public void click(View v){
         Intent intent;
         switch (v.getId()){
@@ -173,6 +183,18 @@ public class UtilsMainActivity extends Activity {
                 break;
             case R.id.take_picture_btn:
                 intent = new Intent(UtilsMainActivity.this, CameraActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.open_web_btn:
+                intent = new Intent(UtilsMainActivity.this, WebviewActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.green_dao_btn:
+                intent = new Intent(UtilsMainActivity.this, GreenDaoActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.shimmer_btn:
+                intent = new Intent(UtilsMainActivity.this, ShimmerActivity.class);
                 startActivity(intent);
                 break;
         }
