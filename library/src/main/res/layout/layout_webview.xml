@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:shimmer="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/root"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <WebView
@@ -11,23 +12,23 @@
         android:id="@+id/shimmer_progress"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="top"
+        android:layout_alignParentTop="true"
         shimmer:duration="2000">
         <ProgressBar
             android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:progressDrawable="@drawable/progress_style2"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/progress_style"
             style="?android:attr/progressBarStyleHorizontal"/>
     </com.github.lzyzsd.jsbridge.facebook.ShimmerFrameLayout>
     <TextView
         android:id="@+id/error_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
+        android:layout_centerInParent="true"
         android:gravity="center"
         android:visibility="invisible"
         android:drawablePadding="10dp"
         android:textColor="#ff0000"
         android:textSize="18sp"
         android:drawableStart="@drawable/cry"/>
-</FrameLayout>
+</RelativeLayout>

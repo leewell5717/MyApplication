@@ -142,10 +142,18 @@ public final class Utils {
     }
 
     /**
-     * 像素转dp
+     * px转dp
      */
     public static int px2dip(Context mContext, float px) {
         float scale = mContext.getResources().getDisplayMetrics().density;
         return (int) (px / scale + 0.5f);
+    }
+
+    /**
+     * dp转px
+     */
+    public static int dp2px(Context mContext, float dp){
+        float scale = mContext.getResources().getDisplayMetrics().density;
+        return (int) (dp * scale + 0.5f);
     }
 }

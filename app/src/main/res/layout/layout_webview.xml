@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <liwei.com.other.RoundLayout.RCRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:round_corner="8dp">
+
+        <WebView
+            android:id="@+id/bridge_webview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </liwei.com.other.RoundLayout.RCRelativeLayout>
+
+    <liwei.com.other.webview.facebook.ShimmerFrameLayout
+        android:id="@+id/shimmer_progress"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        app:duration="2000">
+
+        <ProgressBar
+            style="?android:attr/progressBarStyleHorizontal"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:progressDrawable="@drawable/progress_style" />
+    </liwei.com.other.webview.facebook.ShimmerFrameLayout>
+
+    <TextView
+        android:id="@+id/error_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawablePadding="10dp"
+        android:drawableStart="@drawable/cry"
+        android:gravity="center"
+        android:textColor="#ff0000"
+        android:textSize="18sp"
+        android:visibility="invisible" />
+</RelativeLayout>

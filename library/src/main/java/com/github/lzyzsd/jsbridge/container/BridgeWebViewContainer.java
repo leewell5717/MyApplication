@@ -2,6 +2,9 @@ package com.github.lzyzsd.jsbridge.container;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.graphics.Paint;
+import android.graphics.drawable.ShapeDrawable;
+import android.graphics.drawable.shapes.RoundRectShape;
 import android.os.Build;
 import android.os.Looper;
 import android.os.SystemClock;
@@ -31,9 +34,17 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
     Map<String, BridgeHandler> messageHandlers = new HashMap<>();
     BridgeHandler defaultHandler = new DefaultHandler();
 
+    private View rootView;
     private ShimmerFrameLayout shimmerContainer;
     private WebView webView;
     private TextView errorText;
+
+    //描边颜色
+    private int strokeColor;
+    //描边宽度
+    private float strokeWidth;
+    //圆角大小
+    private float radius;
 
     private List<Message> startupMessage = new ArrayList<>();
     public List<Message> getStartupMessage() {
@@ -73,10 +84,11 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
     }
 
     private void init() {
-        View view = LayoutInflater.from(context).inflate(R.layout.layout_webview,null);
-        shimmerContainer = (ShimmerFrameLayout)view.findViewById(R.id.shimmer_progress);
-        webView = (WebView)view.findViewById(R.id.bridge_webview);
-        errorText = (TextView)view.findViewById(R.id.error_text);
+        rootView = LayoutInflater.from(context).inflate(R.layout.layout_webview,null);
+        shimmerContainer = (ShimmerFrameLayout)rootView.findViewById(R.id.shimmer_progress);
+        webView = (WebView)rootView.findViewById(R.id.bridge_webview);
+        errorText = (TextView)rootView.findViewById(R.id.error_text);
+        this.setBackgroundResource(R.drawable.dialog_custom_round_bg);
 
         //设置webview
         webView.setVerticalScrollBarEnabled(false);
@@ -86,9 +98,26 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
             WebView.setWebContentsDebuggingEnabled(true);
         }
         webView.setWebViewClient(generateBridgeWebViewClient());
+    }
+
+    /**
+     * 添加子View
+     */
+    public void addChildView(){
+        View v = new View(context);
+        //外矩形 左上、右上、右下、左下 圆角半径
+        float[] outerRadii = {radius, radius, radius, radius, radius, radius, radius, radius};
+        RoundRectShape roundRectShape = new RoundRectShape(outerRadii, null, null); //无内矩形
+        ShapeDrawable drawable = new ShapeDrawable(roundRectShape);
+        drawable.getPaint().setColor(strokeColor);
+        drawable.getPaint().setStrokeWidth(strokeWidth);
+        drawable.getPaint().setAntiAlias(true);
+        drawable.getPaint().setStyle(Paint.Style.STROKE);//描边
+        v.setBackground(drawable);
 
         FrameLayout.LayoutParams lp = new LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
-        addView(view,lp);
+        addView(rootView,lp);
+        addView(v,lp);
     }
 
     protected BridgeWebViewClient generateBridgeWebViewClient() {
@@ -284,4 +313,26 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
     public void hideErrorText(){
         errorText.setVisibility(View.INVISIBLE);
     }
+
+    /**
+     * 设置描边颜色
+     */
+    public void setStrokeColor(int strokeColor) {
+        this.strokeColor = strokeColor;
+    }
+
+    /**
+     * 设置描边宽度
+     */
+    public void setStrokeWidth(float strokeWidth) {
+        this.strokeWidth = strokeWidth;
+    }
+
+    /**
+     * 设置圆角大小
+     */
+    public void setRadius(float radius) {
+        this.radius = radius;
+    }
+
 }

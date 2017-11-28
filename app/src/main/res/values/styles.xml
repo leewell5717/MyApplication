@@ -32,6 +32,14 @@
         <item name="android:backgroundDimEnabled">false</item>
         <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
     </style>
+    <style name="MyDialog3" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/white</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:backgroundDimEnabled">true</item>
+        <item name="android:windowAnimationStyle">@android:style/Animation.Dialog</item>
+    </style>
 
     <!--对话框弹出动画1  左右-->
     <style name="MyAnim1" parent="@android:style/Animation">
@@ -42,6 +50,12 @@
     <style name="MyAnim2" parent="@android:style/Animation">
         <item name="android:windowEnterAnimation">@anim/down_to_up</item>
         <item name="android:windowExitAnimation">@anim/up_to_down</item>
+    </style>
+
+    <!--MaterialIconLib布局样式-->
+    <style name="ToolbarTheme" parent="AppTheme">
+        <!-- Customize your theme here. -->
+        <item name="materialIconColor">@color/somecolor</item>
     </style>
 
 </resources>

@@ -1,7 +1,7 @@
 package liwei.com.other.webview.bean;
 
 /**
- * 关闭窗口bean
+ * js返回关闭窗口bean
  */
 public class PageCloseType {
 

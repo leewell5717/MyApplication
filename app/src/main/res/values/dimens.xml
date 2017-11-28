@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="customactivityoncrash_error_activity_error_details_text_size">12sp</dimen>
+
+    <dimen name="ltp_dialog_year_text_size">20sp</dimen>
 </resources>

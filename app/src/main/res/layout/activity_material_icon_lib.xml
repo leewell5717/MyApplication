@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_1"
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        app:theme="@style/ToolbarTheme"
+        app:title="Toolbar context" />
+
+    <liwei.com.other.picker.lineartimepicker.materialiconlib.ui.SetBoundsTest
+        android:layout_width="match_parent"
+        android:layout_height="144dp" />
+
+    <liwei.com.other.picker.lineartimepicker.materialiconlib.MaterialIconView
+        android:id="@+id/file_icon"
+        android:layout_width="match_parent"
+        android:layout_height="96dp"
+        android:background="#A0C"
+        app:materialIcon="file"
+        app:materialIconColor="#3300FF00" />
+    <GridView
+        android:id="@+id/listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="5"
+        android:padding="10dp"/>
+</LinearLayout>

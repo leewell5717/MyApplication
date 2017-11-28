@@ -20,6 +20,7 @@ import android.util.Log;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,6 +66,8 @@ public class CameraActivity extends Activity implements OnClickListener {
 	//图片列表
 	private List<Bitmap> imgList = new ArrayList<>();
 
+	private ImageView selectImg;
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -106,6 +109,7 @@ public class CameraActivity extends Activity implements OnClickListener {
 		Button openCameraCut = (Button) findViewById(R.id.open_camera_cut);
 		Button pickImageCut = (Button) findViewById(R.id.pick_image_cut);
 		Button uploadImageBtn = (Button) findViewById(R.id.upload_image_btn);
+		selectImg = (ImageView) findViewById(R.id.select_img);
 		RecyclerView recycler = (RecyclerView) findViewById(R.id.recycler);
 		openCamera.setOnClickListener(this);
 		pickImage.setOnClickListener(this);
@@ -291,7 +295,7 @@ public class CameraActivity extends Activity implements OnClickListener {
 //				imgList.add(BitmapFactory.decodeFile(picturePath));
 				adapter.addImage(BitmapFactory.decodeFile(picturePath));
 				//展示图片到ImageView上
-//				picture.setImageBitmap(BitmapFactory.decodeFile(picturePath));
+				selectImg.setImageBitmap(BitmapFactory.decodeFile(picturePath));
 			} else if (resultCode == RESULT_CANCELED) { // 用户取消了图像捕获
 				Log.e("XXX","取消选择相册");
 			} else { // 图像捕获失败
@@ -322,7 +326,7 @@ public class CameraActivity extends Activity implements OnClickListener {
 //						imgList.add(photo);
 						adapter.addImage(photo);
 						// 把图片显示在ImageView控件上
-//						picture.setImageBitmap(photo);
+						selectImg.setImageBitmap(photo);
 					}
 				}
 			}else if (resultCode == RESULT_CANCELED) { // 用户取消了图像裁剪
@@ -339,7 +343,7 @@ public class CameraActivity extends Activity implements OnClickListener {
 //		imgList.add(bmp);
 		adapter.addImage(bmp);
 		// 把图片显示在ImageView控件上
-//		picture.setImageBitmap(bmp);
+		selectImg.setImageBitmap(bmp);
 	}
 
 	/**

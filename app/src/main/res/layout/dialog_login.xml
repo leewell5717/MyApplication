@@ -3,10 +3,10 @@
     android:id="@+id/root_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
     android:orientation="vertical">
-    <com.github.lzyzsd.jsbridge.container.BridgeWebViewContainer
-        android:id="@+id/dialog_webview"
-        android:layout_margin="13dp"
+    <liwei.com.other.webview.jsbridge.BridgeWebViewContainer
+        android:id="@+id/webview_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </LinearLayout>

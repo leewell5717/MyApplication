@@ -39,11 +39,15 @@ import liwei.com.other.IJKPlayer.IJKPlayerActivity;
 import liwei.com.other.PasswordView.PasswordActivity;
 import liwei.com.other.RoundLayout.RoundLayoutActivity;
 import liwei.com.other.TakePictuer.CameraActivity;
+import liwei.com.other.circlemenu.CircleMenuActivity;
 import liwei.com.other.design.DesignActivity;
+import liwei.com.other.encrypt.EncryptActivity;
 import liwei.com.other.gauss.GaussActivity;
 import liwei.com.other.kotlin.KotlinActivity;
+import liwei.com.other.mybase.MyTestActivity;
+import liwei.com.other.picker.CalendarDateTimeActivity;
 import liwei.com.other.shimmer.ShimmerActivity;
-import liwei.com.other.webview.WebviewActivity;
+import liwei.com.other.webview.TempActivity;
 
 /**
  * 一般工具样式主页
@@ -75,6 +79,14 @@ public class UtilsMainActivity extends Activity {
     public Button greenDaoBtn;
     @BindView(R.id.shimmer_btn)
     public Button shimmerBtn;
+    @BindView(R.id.encryption_and_decryption_btn)
+    public Button encryptionAndDecryptionBtn;
+    @BindView(R.id.circle_menu_btn)
+    public Button circleMenuBtn;
+    @BindView(R.id.base_activity_btn)
+    public Button baseActivityBtn;
+    @BindView(R.id.date_time_btn)
+    public Button dateTimeBtn;
 
     @BindView(R.id.origin)
     public TextView origin;
@@ -141,7 +153,8 @@ public class UtilsMainActivity extends Activity {
 
     @OnClick({R.id.progress_bar_btn,R.id.gauss_blur_btn,R.id.expand_collapse_btn,R.id.ijkplayer_btn,R.id.design_btn,
             R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn,
-            R.id.open_web_btn,R.id.green_dao_btn,R.id.shimmer_btn})
+            R.id.open_web_btn,R.id.green_dao_btn,R.id.shimmer_btn,R.id.encryption_and_decryption_btn,R.id.circle_menu_btn,
+            R.id.base_activity_btn,R.id.date_time_btn})
     public void click(View v){
         Intent intent;
         switch (v.getId()){
@@ -186,7 +199,7 @@ public class UtilsMainActivity extends Activity {
                 startActivity(intent);
                 break;
             case R.id.open_web_btn:
-                intent = new Intent(UtilsMainActivity.this, WebviewActivity.class);
+                intent = new Intent(UtilsMainActivity.this, TempActivity.class);
                 startActivity(intent);
                 break;
             case R.id.green_dao_btn:
@@ -195,6 +208,22 @@ public class UtilsMainActivity extends Activity {
                 break;
             case R.id.shimmer_btn:
                 intent = new Intent(UtilsMainActivity.this, ShimmerActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.encryption_and_decryption_btn:
+                intent = new Intent(UtilsMainActivity.this, EncryptActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.circle_menu_btn:
+                intent = new Intent(UtilsMainActivity.this, CircleMenuActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.base_activity_btn:
+                intent = new Intent(UtilsMainActivity.this, MyTestActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.date_time_btn:
+                intent = new Intent(UtilsMainActivity.this, CalendarDateTimeActivity.class);
                 startActivity(intent);
                 break;
         }

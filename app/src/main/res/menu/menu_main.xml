@@ -1,0 +1,7 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item app:showAsAction="always" android:title="a" app:materialIcon="content_copy" app:materialIconColor="#FE0000"/>
+    <item app:showAsAction="always" android:title="a" app:materialIcon="select_all" app:materialIconColor="#FF9C00"/>
+    <item app:showAsAction="always" android:title="a" app:materialIcon="content_paste" app:materialIconColor="#2255ff"/>
+
+</menu>

@@ -5,10 +5,6 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ProgressBar;
-
-import java.util.Timer;
-import java.util.TimerTask;
 
 import liwei.com.R;
 import liwei.com.other.shimmer.facebook.ShimmerFrameLayout;
@@ -27,8 +23,6 @@ public class ShimmerActivity extends Activity {
     private Shimmer shimmer2;
     private ShimmerFrameLayout mShimmerViewContainer;
 
-    private ProgressBar progress;
-
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,7 +30,6 @@ public class ShimmerActivity extends Activity {
 
         tv = (ShimmerTextView) findViewById(R.id.shimmer_txt);
         btn = (ShimmerButton) findViewById(R.id.shimmer_btn);
-        progress = (ProgressBar)findViewById(R.id.progress);
         mShimmerViewContainer = (ShimmerFrameLayout) findViewById(R.id.shimmer_view_container);
         Button button = (Button)findViewById(R.id.toggle_btn);
         button.setOnClickListener(new View.OnClickListener() {
@@ -46,14 +39,15 @@ public class ShimmerActivity extends Activity {
                     shimmer1.cancel();
                 } else {
                     shimmer1 = new Shimmer();
+                    shimmer1.setDuration(3000);
                     shimmer1.start(tv);
                 }
                 if (shimmer2 != null && shimmer2.isAnimating()) {
                     shimmer2.cancel();
                 } else {
                     shimmer2 = new Shimmer();
+                    shimmer2.setDuration(3000);
                     shimmer2.start(btn);
-                    shimmer2.setDuration(3);
                 }
 
                 if(mShimmerViewContainer.isAnimationStarted()){
@@ -63,26 +57,6 @@ public class ShimmerActivity extends Activity {
                 }
             }
         });
-
-        progress.setMax(100);
-        progress.setProgress(0);
-        final Timer timer = new Timer();
-        TimerTask task = new TimerTask() {
-            @Override
-            public void run() {
-                runOnUiThread(new Runnable() {
-                    @Override
-                    public void run() {
-                        progress.incrementProgressBy(1);
-                        if(progress.getProgress() == 100){
-                            timer.cancel();
-                        }
-                    }
-                });
-            }
-        };
-        timer.schedule(task,1000,100);
-
     }
 
     @Override

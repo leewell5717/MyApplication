@@ -83,7 +83,10 @@ dependencies {
     compile 'com.github.Rukey7:IjkPlayerView:1.0.4'
     //greendao依赖
     compile 'org.greenrobot:greendao:3.2.0'
-    compile project(':library')
+
+    //leakcanary依赖
+//    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+//    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
 }
 repositories {
     mavenCentral()

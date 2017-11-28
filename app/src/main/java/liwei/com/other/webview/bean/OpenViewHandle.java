@@ -3,7 +3,7 @@ package liwei.com.other.webview.bean;
 import java.io.Serializable;
 
 /**
- * 打开新窗口bean
+ * js返回打开新窗口bean
  */
 public class OpenViewHandle implements Serializable{
 

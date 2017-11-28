@@ -1,9 +1,5 @@
 package liwei.com.retrofit;
 
-/**
- * Created by necer on 2017/6/29.
- */
-
 public class CalendarBean {
     /**
      * avoid : 安葬 出行 安葬 针灸

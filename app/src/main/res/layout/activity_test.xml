@@ -3,38 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <LinearLayout
+    <TextView
+        android:id="@+id/test_text"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <Button
-            android:id="@+id/test_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="点击"/>
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/text_container"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <TextView
-            android:id="@+id/test_text"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="这是一段很长很惨感到的艾丝凡阿斯达阿飞阿斯达噶圣诞艾丝凡阿斯达阿飞斯蒂芬斯蒂芬
-            斯蒂芬是否斯蒂芬问题大风过后沪蓉返回而已速递阿三阿斯达三国斯蒂芬是否阿斯达发是否公司上电股份是否阿飞
-            艾弗森艾丝凡艾丝凡三等功三等功三等功三等功三等功三等功三等功三等功三等功为他问题问题问题问题问题问题问题
-            问题问题问题问题问题第三个相册好下斯蒂芬现在vd三等功五十多个色速递为三等功他速递萨芬时代风格图文时代风格
-            艾丝凡个小东哥三等功三等功闪光灯 问题时代风格问题上电股份问题速递问题三等功个相册vh陧官方如图飞过海下班是通过阿飞
-            三国问题上电股份问题上电股份问题三等功唯一让订购问题三等功问题三等功问题三等功问题三等功问题三等功问题"/>
-    </LinearLayout>
-    <ImageView
-        android:id="@+id/arrow"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="end"
-        android:layout_marginEnd="5dp"
-        android:contentDescription="@null"
-        android:src="@mipmap/icon_green_arrow_down"/>
+        android:layout_height="wrap_content" />
 </LinearLayout>

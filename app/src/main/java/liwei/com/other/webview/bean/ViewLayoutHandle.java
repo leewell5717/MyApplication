@@ -3,12 +3,21 @@ package liwei.com.other.webview.bean;
 import java.io.Serializable;
 
 /**
- * 设置窗体在移动端展示位置
+ * js返回设置窗体在移动端展示位置bean
  */
 public class ViewLayoutHandle implements Serializable{
 
     /*
-     * "layoutType":2,"centerX":320,"centerY":180,"widthScale":"0.8","heightScale":"0.8","cornerRadius":7,"message":""
+     * "layoutType": 2,
+     "centerX":x,
+     "centerY":y ,
+     "cornerRadius": 23,
+     "pageOpenType":1,
+     "widthScale	":"0.5",
+     "heightScale":"0.88",
+     "borderWidth":2,
+     "borderColor": "#000",
+     "message":"页面初始化"
      */
 
     /**布局方式，1为坐标布局，2为比例布局*/
@@ -33,6 +42,12 @@ public class ViewLayoutHandle implements Serializable{
     private float heightScale;
     /**备注信息*/
     private String message;
+    /**页面打开类型*/
+    private int pageOpenType;
+    /**描边宽度*/
+    private float borderWidth;
+    /**描边颜色*/
+    private String borderColor;
 
     public int getLayoutType() {
         return layoutType;
@@ -120,5 +135,29 @@ public class ViewLayoutHandle implements Serializable{
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+    public int getPageOpenType() {
+        return pageOpenType;
+    }
+
+    public void setPageOpenType(int pageOpenType) {
+        this.pageOpenType = pageOpenType;
+    }
+
+    public float getBorderWidth() {
+        return borderWidth;
+    }
+
+    public void setBorderWidth(float borderWidth) {
+        this.borderWidth = borderWidth;
+    }
+
+    public String getBorderColor() {
+        return borderColor;
+    }
+
+    public void setBorderColor(String borderColor) {
+        this.borderColor = borderColor;
     }
 }

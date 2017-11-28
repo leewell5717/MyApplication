@@ -53,6 +53,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="密码可见/不可见"/>
+            <Button
+                android:id="@+id/date_time_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="日历-日期-时间选择器"/>
         </LinearLayout>
         <LinearLayout
             android:layout_width="0dp"
@@ -84,6 +89,21 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Shimmer效果"/>
+            <Button
+                android:id="@+id/encryption_and_decryption_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="加解密"/>
+            <Button
+                android:id="@+id/circle_menu_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="circle_menu"/>
+            <Button
+                android:id="@+id/base_activity_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="封装BaseActivity"/>
         </LinearLayout>
     </LinearLayout>
     <TextView
