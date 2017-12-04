@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--material-time-picker 自定义-->
+    <attr name="mdtp_theme_dark" format="boolean">false</attr>
+
+</resources>

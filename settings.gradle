@@ -1,1 +1,1 @@
-include ':app', ':library'
+include ':app', ':library', ':material_time_picker_lib'

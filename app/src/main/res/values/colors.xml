@@ -12,4 +12,8 @@
 
     <color name="foreground_dark">#212121</color>
     <color name="background_dark">#171717</color>
+
+    <color name="btn_cancel_color">#999999</color>
+    <color name="btn_confirm_color">#303F9F</color>
+
 </resources>

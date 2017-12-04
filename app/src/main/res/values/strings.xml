@@ -11,4 +11,36 @@
     <string name="expand_collapse_content">The story of a Chinese couple at Oxford University who first met each other as deskmate in middle school and recently married each other has gone viral, southcn.com reported.
         Zhou Si, the groom, and Chen Mengge, the bride, married each other on Aug 18 and will together go to Oxford University to pursue their doctoral degrees later this year.
         They were deskmate in middle school and then both were admitted by same high school but not in same class.</string>
+
+
+    <string name="title_activity_main">DateTimePicker Example</string>
+    <string name="selected_time">The time you picked will be shown here.</string>
+    <string name="selected_date">The date you picked will be shown here.</string>
+    <string name="selected_datetime">The date and time you picked will be shown here.</string>
+    <string name="pick_time">Pick Time</string>
+    <string name="pick_date">Pick Date</string>
+    <string name="pick_datetime">Pick Date+Time</string>
+    <string name="mode_24_hours">Use 24 hour mode</string>
+    <string name="mode_dark">Use dark theme</string>
+    <string name="mode_custom_accent">Use custom accent</string>
+    <string name="vibrate">Vibrate on touch</string>
+    <string name="dismiss">Dismiss on pause (eg: orientation change)</string>
+    <string name="title">Show a title</string>
+    <string name="show_version_2">Use marshmallow layout</string>
+    <string name="show_year_first">Show the year picker first</string>
+    <string name="enable_seconds">Show seconds picker</string>
+    <string name="enable_minutes">Show minutes picker</string>
+    <string name="limit_times">Limit selectable times</string>
+    <string name="limit_dates">Limit selectable dates</string>
+    <string name="disable_dates">Disable specific dates</string>
+    <string name="disable_times">Disable specific times</string>
+    <string name="highlight_dates">Highlight certain dates</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="tab_title_time">Time</string>
+    <string name="tab_title_date">Date</string>
+    <string name="tab_title_datetime">Date+Time</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

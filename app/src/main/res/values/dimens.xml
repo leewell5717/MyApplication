@@ -3,4 +3,8 @@
     <dimen name="customactivityoncrash_error_activity_error_details_text_size">12sp</dimen>
 
     <dimen name="ltp_dialog_year_text_size">20sp</dimen>
+
+    <dimen name="btn_text_size">16sp</dimen>
+    <dimen name="view_text_size">10sp</dimen>
+
 </resources>
