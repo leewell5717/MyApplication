@@ -18,8 +18,6 @@ import android.widget.LinearLayout;
 
 import liwei.com.R;
 
-import static liwei.com.R.id.button4;
-
 public class FloatView extends LinearLayout{
 
     // 悬浮栏位置
@@ -82,8 +80,8 @@ public class FloatView extends LinearLayout{
 //        Button button2 = (Button) view.findViewById(R.id.button2);
 //        Button button3 = (Button) view.findViewById(R.id.button3);
 //        Button button4 = (Button) view.findViewById(R.id.button4);
-        img.setOnClickListener(clickListener);
-        button1.setOnClickListener(clickListener);
+//        img.setOnClickListener(clickListener);
+//        button1.setOnClickListener(clickListener);
 //        button2.setOnClickListener(clickListener);
 //        button3.setOnClickListener(clickListener);
 //        button4.setOnClickListener(clickListener);
@@ -118,7 +116,7 @@ public class FloatView extends LinearLayout{
                     case MotionEvent.ACTION_UP:
                         // 拖动
                         if (isScroll) {
-//                            autoView();
+                            autoView();
                         }
                         isScroll = false;
                         mTouchStartX = mTouchStartY = 0;
@@ -233,57 +231,57 @@ public class FloatView extends LinearLayout{
         windowManager.updateViewLayout(view, wmParams);
     }
 
-    private OnClickListener clickListener = new OnClickListener() {
-        @Override
-        public void onClick(View v) {
-            switch (v.getId()){
-                case R.id.button1:
-                    Log.e("ZZZ","1");
-                    break;
-                case R.id.button2:
-                    Log.e("ZZZ","2");
-                    break;
-                case R.id.button3:
-                    Log.e("ZZZ","3");
-                    break;
-                case button4:
-                    Log.e("ZZZ","4");
-                    break;
-                case R.id.img:
-                    //有动画
-//                    ValueAnimator widthAnim;
-//                    Log.e("XXX","宽度值："+ containerBtnWidth);
+//    private OnClickListener clickListener = new OnClickListener() {
+//        @Override
+//        public void onClick(View v) {
+//            switch (v.getId()){
+//                case R.id.button1:
+//                    Log.e("ZZZ","1");
+//                    break;
+//                case R.id.button2:
+//                    Log.e("ZZZ","2");
+//                    break;
+//                case R.id.button3:
+//                    Log.e("ZZZ","3");
+//                    break;
+//                case button4:
+//                    Log.e("ZZZ","4");
+//                    break;
+//                case R.id.img:
+//                    //有动画
+////                    ValueAnimator widthAnim;
+////                    Log.e("XXX","宽度值："+ containerBtnWidth);
+////                    if(!expanded){
+////                        expanded = true;
+////                        widthAnim = ValueAnimator.ofFloat(0,containerBtnWidth);
+////                    }else{
+////                        expanded = false;
+////                        widthAnim = ValueAnimator.ofFloat(containerBtnWidth,0);
+////                    }
+////                    widthAnim.setDuration(1500);
+////                    widthAnim.setInterpolator(new LinearInterpolator());
+////                    widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+////                        @Override
+////                        public void onAnimationUpdate(ValueAnimator animation) {
+////                            ViewGroup.LayoutParams params = btnContainer.getLayoutParams();
+////                            params.width = (int)animation.getAnimatedValue();
+////                            btnContainer.setLayoutParams(params);
+////
+//////                            btnContainer.setScaleX((float)animation.getAnimatedValue());
+////                        }
+////                    });
+////                    widthAnim.start();
+//
+//                    //无动画
 //                    if(!expanded){
 //                        expanded = true;
-//                        widthAnim = ValueAnimator.ofFloat(0,containerBtnWidth);
+//                        btnContainer.setVisibility(View.VISIBLE);
 //                    }else{
 //                        expanded = false;
-//                        widthAnim = ValueAnimator.ofFloat(containerBtnWidth,0);
+//                        btnContainer.setVisibility(View.GONE);
 //                    }
-//                    widthAnim.setDuration(1500);
-//                    widthAnim.setInterpolator(new LinearInterpolator());
-//                    widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-//                        @Override
-//                        public void onAnimationUpdate(ValueAnimator animation) {
-//                            ViewGroup.LayoutParams params = btnContainer.getLayoutParams();
-//                            params.width = (int)animation.getAnimatedValue();
-//                            btnContainer.setLayoutParams(params);
-//
-////                            btnContainer.setScaleX((float)animation.getAnimatedValue());
-//                        }
-//                    });
-//                    widthAnim.start();
-
-                    //无动画
-                    if(!expanded){
-                        expanded = true;
-                        btnContainer.setVisibility(View.VISIBLE);
-                    }else{
-                        expanded = false;
-                        btnContainer.setVisibility(View.GONE);
-                    }
-                    break;
-            }
-        }
-    };
+//                    break;
+//            }
+//        }
+//    };
 }

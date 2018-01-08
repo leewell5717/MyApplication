@@ -2,21 +2,14 @@ package liwei.com.other.picker;
 
 import android.content.DialogInterface;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.support.v4.content.res.ResourcesCompat;
 import android.view.View;
 import android.widget.Toast;
 
 import liwei.com.R;
 import liwei.com.other.mybase.MyBaseActivity;
-import liwei.com.other.picker.lineartimepicker.ColorAdapter;
-import liwei.com.other.picker.lineartimepicker.GradientColorAdapter;
-import liwei.com.other.picker.lineartimepicker.adapter.DateAdapter;
-import liwei.com.other.picker.lineartimepicker.adapter.LinearPickerAdapter;
-import liwei.com.other.picker.lineartimepicker.adapter.TimeAdapter;
 import liwei.com.other.picker.lineartimepicker.dialog.LinearDatePickerDialog;
 import liwei.com.other.picker.lineartimepicker.dialog.LinearTimePickerDialog;
-import liwei.com.other.picker.lineartimepicker.view.LinearPickerView;
 
 public class LinearTimePickerActivity extends MyBaseActivity {
 
@@ -40,19 +33,19 @@ public class LinearTimePickerActivity extends MyBaseActivity {
         backgroundDark = ResourcesCompat.getColor(getResources(), R.color.background_dark, getTheme());
         foregroundDark = ResourcesCompat.getColor(getResources(), R.color.foreground_dark, getTheme());
 
-        LinearPickerView v = new LinearPickerView(this);
-        Paint textPaint = new Paint();
-        textPaint.setColor(Color.WHITE);
-
-        LinearPickerAdapter dateAdap = new DateAdapter(this, textPaint);
-        LinearPickerAdapter timeAdap = new TimeAdapter(this, textPaint);
-        LinearPickerAdapter colorAdap = new ColorAdapter(this, textPaint);
-        LinearPickerAdapter graColorAdap = new GradientColorAdapter(this, textPaint);
-        v.setAdapter(dateAdap);
-        v.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
-        v.setLineColor(Color.GRAY);
-        v.setActiveLineColor(Color.WHITE);
-        v.setHandleBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
+//        LinearPickerView v = new LinearPickerView(this);
+//        Paint textPaint = new Paint();
+//        textPaint.setColor(Color.WHITE);
+//
+//        LinearPickerAdapter dateAdap = new DateAdapter(this, textPaint);
+//        LinearPickerAdapter timeAdap = new TimeAdapter(this, textPaint);
+//        LinearPickerAdapter colorAdap = new ColorAdapter(this, textPaint);
+//        LinearPickerAdapter graColorAdap = new GradientColorAdapter(this, textPaint);
+//        v.setAdapter(dateAdap);
+//        v.setBackgroundColor(getResources().getColor(R.color.colorPrimary));
+//        v.setLineColor(Color.GRAY);
+//        v.setActiveLineColor(Color.WHITE);
+//        v.setHandleBackgroundColor(getResources().getColor(R.color.colorPrimaryDark));
 
         findViewById(R.id.ltp_time).setOnClickListener(new View.OnClickListener() {
             @Override

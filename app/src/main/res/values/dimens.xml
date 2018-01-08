@@ -6,5 +6,6 @@
 
     <dimen name="btn_text_size">16sp</dimen>
     <dimen name="view_text_size">10sp</dimen>
+    <dimen name="behand_size">200dp</dimen>
 
 </resources>

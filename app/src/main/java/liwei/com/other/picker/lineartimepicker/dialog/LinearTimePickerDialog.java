@@ -97,6 +97,9 @@ public class LinearTimePickerDialog extends BaseLinearPickerDialog {
         }
     }
 
+    /**
+     * 按钮点击回调
+     */
     public interface ButtonCallback {
         void onPositive(DialogInterface dialog, int hour, int minutes);
         void onNegative(DialogInterface dialog);

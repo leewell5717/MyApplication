@@ -27,7 +27,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name="liwei.com.other.UtilsMainActivity">
+        <activity android:name="liwei.com.TestActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -59,7 +59,6 @@
             android:theme="@style/MyDialog"/>
         <activity android:name="liwei.com.other.shimmer.ShimmerActivity"/>
         <activity android:name="liwei.com.other.encrypt.EncryptActivity"/>
-        <activity android:name=".other.webview.TempActivity" android:screenOrientation="landscape"/>
         <activity android:name=".other.circlemenu.CircleMenuActivity"/>
         <activity android:name="liwei.com.other.mybase.MyTestActivity"/>
         <activity android:name="liwei.com.other.picker.CalendarDateTimeActivity"/>
@@ -67,6 +66,7 @@
         <activity android:name="liwei.com.other.picker.LinearTimePickerActivity"/>
         <activity android:name=".other.picker.PickViewActivity"/>
         <activity android:name=".other.picker.MaterialDateTimePickerActivity"/>
+        <activity android:name="liwei.com.other.slidingmenu.SlidingMenuActivity"/>
 
 
         <provider

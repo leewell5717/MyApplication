@@ -2222,4 +2222,13 @@
         <attr name="drawItemCount" format="integer"/>
     </declare-styleable>
 
+    <!--圆角FrameLayout-->
+    <declare-styleable name="RoundAngleFrameLayout">
+        <attr name="radius" format="dimension" />
+        <attr name="topLeftRadius" format="dimension" />
+        <attr name="topRightRadius" format="dimension" />
+        <attr name="bottomLeftRadius" format="dimension" />
+        <attr name="bottomRightRadius" format="dimension" />
+    </declare-styleable>
+
 </resources>

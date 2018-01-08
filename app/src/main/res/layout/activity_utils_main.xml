@@ -75,11 +75,6 @@
                 android:layout_height="wrap_content"
                 android:text="拍照/选择相册"/>
             <Button
-                android:id="@+id/open_web_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="WebView"/>
-            <Button
                 android:id="@+id/green_dao_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -104,6 +99,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="封装BaseActivity"/>
+            <Button
+                android:id="@+id/sliding_menu_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="侧滑菜单"/>
         </LinearLayout>
     </LinearLayout>
     <TextView

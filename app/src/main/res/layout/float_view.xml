@@ -18,6 +18,7 @@
         android:id="@+id/btn_container"
         android:layout_width="210dp"
         android:layout_height="50dp"
+        android:visibility="gone"
         android:orientation="horizontal">
 
         <Button
