@@ -85,9 +85,16 @@ dependencies {
     //greendao依赖
     compile 'org.greenrobot:greendao:3.2.0'
     //leakcanary依赖
+
     //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'
+
     //    releaseCompile 'com.squareup.leakcanary:leakcanary-android-no-op:1.5'
     compile project(':material_time_picker_lib')
+    compile files('libs/alipaySdk-20170922.jar')
+    compile files('libs/gson-2.6.1.jar')
+    compile files('libs/mqqopenpay.jar')
+    compile files('libs/okhttp-3.2.0.jar')
+    compile files('libs/okio-1.11.0.jar')
 }
 repositories {
     mavenCentral()

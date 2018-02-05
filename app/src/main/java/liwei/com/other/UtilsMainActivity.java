@@ -2,29 +2,15 @@ package liwei.com.other;
 
 import android.Manifest;
 import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.os.Environment;
-import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.tbruyelle.rxpermissions2.Permission;
 import com.tbruyelle.rxpermissions2.RxPermissions;
-
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileReader;
-import java.io.InputStreamReader;
-import java.util.ArrayList;
-import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -45,6 +31,7 @@ import liwei.com.other.encrypt.EncryptActivity;
 import liwei.com.other.gauss.GaussActivity;
 import liwei.com.other.kotlin.KotlinActivity;
 import liwei.com.other.mybase.MyTestActivity;
+import liwei.com.other.pay.MyPayActivity;
 import liwei.com.other.picker.CalendarDateTimeActivity;
 import liwei.com.other.shimmer.ShimmerActivity;
 import liwei.com.other.slidingmenu.SlidingMenuActivity;
@@ -87,15 +74,8 @@ public class UtilsMainActivity extends Activity {
     public Button dateTimeBtn;
     @BindView(R.id.sliding_menu_btn)
     public Button slidingMenuBtn;
-
-    @BindView(R.id.origin)
-    public TextView origin;
-    @BindView(R.id.local)
-    public TextView local;
-
-    private final String PreferencrPackage = "mydemo.com";
-    private String originContent;
-    private final String filePath = Environment.getExternalStorageDirectory() + File.separator + "DownloadGame" + File.separator;
+    @BindView(R.id.pay_btn)
+    public Button payBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,42 +99,12 @@ public class UtilsMainActivity extends Activity {
                 }
             }
         });
-
-//        String readFile = readLocalFile();
-        List<String> readList = readLocalFile3();
-        StringBuilder builder = new StringBuilder();
-        String readFile = null;
-        if(readList != null && readList.size() != 0){
-            for(String str : readList){
-                builder.append(AESCipher.decrypt(AESCipher.key,str));
-            }
-            String temp = AESCipher.decrypt(AESCipher.key,readList.get(0));
-            readFile = temp.substring(0,temp.length() - 1);
-        }
-        try {
-            Context c = this.createPackageContext(PreferencrPackage,Context.CONTEXT_IGNORE_SECURITY);
-            SharedPreferences preferences = c.getSharedPreferences("channel",Context.MODE_WORLD_READABLE + Context.MODE_WORLD_WRITEABLE);
-            originContent = preferences.getString("channel",null);
-            origin.setText("读取渠道数据：" + originContent + "\n" + "读取file全部数据：" + builder.toString() + "\n" + "读取第一个数据："
-                + readFile);
-        } catch (PackageManager.NameNotFoundException e) {
-            e.printStackTrace();
-        }
-
-        SharedPreferences savePreference = getSharedPreferences("LocalChannel",MODE_PRIVATE);
-        if(TextUtils.isEmpty(savePreference.getString("local_channel",null))){
-            SharedPreferences.Editor editor = savePreference.edit();
-            editor.putString("local_channel",originContent);
-            editor.apply();
-        }
-        String localContent = savePreference.getString("local_channel",null);
-        local.setText("写入本地渠道："+localContent+"");
     }
 
     @OnClick({R.id.progress_bar_btn,R.id.gauss_blur_btn,R.id.expand_collapse_btn,R.id.ijkplayer_btn,R.id.design_btn,
             R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn,
             R.id.green_dao_btn,R.id.shimmer_btn,R.id.encryption_and_decryption_btn,R.id.circle_menu_btn,
-            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn})
+            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn,R.id.pay_btn})
     public void click(View v){
         Intent intent;
         switch (v.getId()){
@@ -226,45 +176,10 @@ public class UtilsMainActivity extends Activity {
                 intent = new Intent(UtilsMainActivity.this, SlidingMenuActivity.class);
                 startActivity(intent);
                 break;
+            case R.id.pay_btn:
+                intent = new Intent(UtilsMainActivity.this, MyPayActivity.class);
+                startActivity(intent);
+                break;
         }
-    }
-
-    public List<String> readLocalFile3(){
-        List<String> list = new ArrayList<>();
-        try {
-            FileReader reader = new FileReader(filePath + "channelText.dat");
-            BufferedReader br = new BufferedReader (reader);
-            String str;
-            while ((str = br.readLine()) != null){
-                list.add(str);
-            }
-            br.close();
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return list;
-    }
-
-    public String readLocalFile(){
-        //密文
-        String ciphertext = "";
-        //明文
-        String plaintext;
-        try {
-            FileInputStream inputStream = new FileInputStream(filePath + "channelText.dat");
-            InputStreamReader reader = new InputStreamReader(inputStream,"UTF-8");
-            char input[]  =new char[inputStream.available()];
-            reader.read(input);
-            reader.close();
-            inputStream.close();
-            ciphertext = new String(input);
-            plaintext = AESCipher.decrypt(AESCipher.key,ciphertext);
-            return "密文："+ciphertext+"，明文："+plaintext;
-        }catch (Exception e) {
-            Log.e("X","读取失败："+e.getMessage());
-            e.printStackTrace();
-        }
-        return ciphertext;
     }
 }

@@ -67,6 +67,7 @@
         <activity android:name=".other.picker.PickViewActivity"/>
         <activity android:name=".other.picker.MaterialDateTimePickerActivity"/>
         <activity android:name="liwei.com.other.slidingmenu.SlidingMenuActivity"/>
+        <activity android:name=".other.pay.MyPayActivity"/>
 
 
         <provider
