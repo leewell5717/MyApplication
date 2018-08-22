@@ -3,13 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/MyApplication.iml" filepath="$PROJECT_DIR$/MyApplication.iml" />
-      <module fileurl="file://F:\AndroidProject\MyApplication\MyApplication.iml" filepath="F:\AndroidProject\MyApplication\MyApplication.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
-      <module fileurl="file://F:\AndroidProject\MyApplication\app\app.iml" filepath="F:\AndroidProject\MyApplication\app\app.iml" />
       <module fileurl="file://$PROJECT_DIR$/library/library.iml" filepath="$PROJECT_DIR$/library/library.iml" />
-      <module fileurl="file://F:\AndroidProject\MyApplication\library\library.iml" filepath="F:\AndroidProject\MyApplication\library\library.iml" />
       <module fileurl="file://$PROJECT_DIR$/material_time_picker_lib/material_time_picker_lib.iml" filepath="$PROJECT_DIR$/material_time_picker_lib/material_time_picker_lib.iml" />
-      <module fileurl="file://F:\AndroidProject\MyApplication\material_time_picker_lib\material_time_picker_lib.iml" filepath="F:\AndroidProject\MyApplication\material_time_picker_lib\material_time_picker_lib.iml" />
     </modules>
   </component>
 </project>

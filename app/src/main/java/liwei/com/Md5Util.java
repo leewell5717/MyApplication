@@ -2,8 +2,6 @@ package liwei.com;
 
 import android.util.Log;
 
-import org.apache.http.impl.auth.UnsupportedDigestAlgorithmException;
-
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -42,7 +40,8 @@ public class Md5Util {
 			sDigest = MessageDigest.getInstance(ALGORITHM);
 		} catch (NoSuchAlgorithmException e) {
 			Log.e(LOG_TAG, "Get MD5 Digest failed.");
-			throw new UnsupportedDigestAlgorithmException(ALGORITHM, e);
+			//TODO 找不到此类
+//			throw new UnsupportedDigestAlgorithmException(ALGORITHM, e);
 		}
 	}
 
