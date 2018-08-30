@@ -69,6 +69,8 @@
         <activity android:name="liwei.com.other.slidingmenu.SlidingMenuActivity"/>
         <activity android:name=".other.pay.MyPayActivity"/>
         <activity android:name=".designmodel.singleton.SingletonModelActivity"/>
+        <activity android:name=".designmodel.builder.BuilderModelActivity"/>
+        <activity android:name=".designmodel.prototype.ProtoTypeModelActivity"/>
 
 
         <provider

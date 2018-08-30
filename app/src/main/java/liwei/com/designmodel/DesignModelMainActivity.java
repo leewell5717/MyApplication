@@ -13,6 +13,8 @@ import butterknife.BindViews;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
+import liwei.com.designmodel.builder.BuilderModelActivity;
+import liwei.com.designmodel.prototype.ProtoTypeModelActivity;
 import liwei.com.designmodel.singleton.SingletonModelActivity;
 
 /**
@@ -20,7 +22,7 @@ import liwei.com.designmodel.singleton.SingletonModelActivity;
  */
 public class DesignModelMainActivity extends Activity{
 
-    @BindViews({R.id.singleton_model,R.id.builder_model})
+    @BindViews({R.id.singleton_model,R.id.builder_model,R.id.prototype_model})
     public List<Button> buttons;
 
     @Override
@@ -30,17 +32,23 @@ public class DesignModelMainActivity extends Activity{
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.singleton_model,R.id.builder_model})
+    @OnClick({R.id.singleton_model,R.id.builder_model,R.id.prototype_model})
     public void myOnclick(View view){
-        Intent intent;
         switch (view.getId()){
             case R.id.singleton_model:
-                intent = new Intent(DesignModelMainActivity.this, SingletonModelActivity.class);
-                startActivity(intent);
+                startTheActivity(SingletonModelActivity.class);
                 break;
             case R.id.builder_model:
-
+                startTheActivity(BuilderModelActivity.class);
+                break;
+            case R.id.prototype_model:
+                startTheActivity(ProtoTypeModelActivity.class);
                 break;
         }
+    }
+
+    private void startTheActivity(Class<?> cls){
+        Intent intent = new Intent(DesignModelMainActivity.this,cls);
+        startActivity(intent);
     }
 }

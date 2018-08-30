@@ -15,7 +15,7 @@ import butterknife.OnClick;
 import liwei.com.R;
 
 /**
- * 单例模式
+ * 单例模式Activity
  */
 public class SingletonModelActivity extends Activity {
     @BindViews({R.id.button1, R.id.button2, R.id.button3, R.id.button4, R.id.button5})

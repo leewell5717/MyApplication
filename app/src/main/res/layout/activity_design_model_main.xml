@@ -18,6 +18,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="builder模式"/>
+        <Button
+            android:id="@+id/prototype_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="原型模式"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
