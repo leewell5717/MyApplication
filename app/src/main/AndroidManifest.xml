@@ -71,6 +71,7 @@
         <activity android:name=".designmodel.singleton.SingletonModelActivity"/>
         <activity android:name=".designmodel.builder.BuilderModelActivity"/>
         <activity android:name=".designmodel.prototype.ProtoTypeModelActivity"/>
+        <activity android:name=".designmodel.proxy.ProxyActivity"/>
 
 
         <provider

@@ -15,6 +15,7 @@ import butterknife.OnClick;
 import liwei.com.R;
 import liwei.com.designmodel.builder.BuilderModelActivity;
 import liwei.com.designmodel.prototype.ProtoTypeModelActivity;
+import liwei.com.designmodel.proxy.ProxyActivity;
 import liwei.com.designmodel.singleton.SingletonModelActivity;
 
 /**
@@ -22,7 +23,7 @@ import liwei.com.designmodel.singleton.SingletonModelActivity;
  */
 public class DesignModelMainActivity extends Activity{
 
-    @BindViews({R.id.singleton_model,R.id.builder_model,R.id.prototype_model})
+    @BindViews({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model})
     public List<Button> buttons;
 
     @Override
@@ -32,17 +33,20 @@ public class DesignModelMainActivity extends Activity{
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.singleton_model,R.id.builder_model,R.id.prototype_model})
+    @OnClick({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model})
     public void myOnclick(View view){
         switch (view.getId()){
-            case R.id.singleton_model:
+            case R.id.singleton_model: //单例模式
                 startTheActivity(SingletonModelActivity.class);
                 break;
-            case R.id.builder_model:
+            case R.id.builder_model: //builder构造者模式
                 startTheActivity(BuilderModelActivity.class);
                 break;
-            case R.id.prototype_model:
+            case R.id.prototype_model: //原型模式
                 startTheActivity(ProtoTypeModelActivity.class);
+                break;
+            case R.id.proxy_model: //代理模式
+                startTheActivity(ProxyActivity.class);
                 break;
         }
     }
