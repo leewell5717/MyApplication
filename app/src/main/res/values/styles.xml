@@ -67,4 +67,26 @@
         <item name="@android:windowEnterAnimation">@anim/pop_win_content_fade_in</item>
         <item name="@android:windowExitAnimation">@anim/pop_win_content_fade_out</item>
     </style>
+
+    <!--侧滑悬浮窗样式-->
+    <style name="MyDialog_Float" parent="@android:style/Theme.Dialog">
+        <!-- 有无边框 -->
+        <item name="android:windowFrame">@null</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowIsFloating">true</item>
+        <!-- 是否透明 -->
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- 背景透明 -->
+        <item name="android:windowBackground">@color/float_bg</item>
+        <!-- 背景内容模糊 -->
+        <item name="android:backgroundDimEnabled">false</item>
+        <!--无标题 -->
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowAnimationStyle">@style/dialog_anim</item>
+    </style>
+    <style name="dialog_anim">
+        <!--进入退出动画-->
+        <item name="android:windowEnterAnimation">@anim/in_anim</item>
+        <item name="android:windowExitAnimation">@anim/out_anim</item>
+    </style>
 </resources>

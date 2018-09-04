@@ -1,24 +1,36 @@
 package liwei.com.other.Float;
 
-import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.graphics.PixelFormat;
+import android.graphics.drawable.ColorDrawable;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.util.AttributeSet;
 import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.Gravity;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewTreeObserver;
+import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+
+import com.bumptech.glide.Glide;
+import com.squareup.picasso.Picasso;
 
 import liwei.com.R;
 
 public class FloatView extends LinearLayout{
+
+    public static final String imgUrl = "http://img.zcool.cn/community/0117e2571b8b246ac72538120dd8a4.jpg@1280w_1l_2o_100sh.jpg";
 
     // 悬浮栏位置
     private final static int LEFT = 0;
@@ -35,20 +47,24 @@ public class FloatView extends LinearLayout{
     private float mTouchStartX;
     private float mTouchStartY;
     private boolean isScroll;
-    /**是否展开*/
-    private boolean expanded = true;
     //按钮容器宽度
     private int containerBtnWidth;
     private View view;
     private LinearLayout btnContainer;
 
-    public FloatView(Activity activity){
-        super(activity);
-        view = LayoutInflater.from(activity).inflate(R.layout.float_view, null);
+    private FragmentActivity mActivity;
 
-        windowManager = (WindowManager) activity.getSystemService(Context.WINDOW_SERVICE);
+    private MyFloatView myFloatView;
+    private MyFloatBall myFloatBall;
+
+    public FloatView(FragmentActivity activity){
+        super(activity);
+        mActivity = activity;
+        view = LayoutInflater.from(mActivity).inflate(R.layout.float_view, null);
+
+        windowManager = (WindowManager) mActivity.getSystemService(Context.WINDOW_SERVICE);
         DisplayMetrics dm = new DisplayMetrics();
-        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        mActivity.getWindowManager().getDefaultDisplay().getMetrics(dm);
         //通过像素密度来设置按钮的大小
         dpi = dpi(dm.densityDpi);
         //屏宽
@@ -58,7 +74,8 @@ public class FloatView extends LinearLayout{
         //布局设置
         wmParams = new WindowManager.LayoutParams();
         // 设置window type
-        wmParams.type = WindowManager.LayoutParams.TYPE_TOAST;
+        wmParams.type = WindowManager.LayoutParams.TYPE_SYSTEM_ALERT;
+//        wmParams.type = WindowManager.LayoutParams.TYPE_TOAST;
 //        wmParams.type = WindowManager.LayoutParams.TYPE_APPLICATION;
         wmParams.format = PixelFormat.RGBA_8888; // 设置图片格式，效果为背景透明
         wmParams.gravity = Gravity.START | Gravity.TOP;
@@ -69,22 +86,22 @@ public class FloatView extends LinearLayout{
         wmParams.x = 0;
         wmParams.y = 0;
         windowManager.addView(view, wmParams);
-//        windowManager.addView(view2, wmParams);
 
-//        view1 = LayoutInflater.from(activity).inflate(R.layout.float_view1, null,false);
-//        view2 = LayoutInflater.from(activity).inflate(R.layout.float_view2, null,false);
-//        ImageView img = (ImageView) view1.findViewById(R.id.img);
+        myFloatBall = new MyFloatBall(mActivity);
+        myFloatBall.setLayout(R.layout.view_float_ball);
+
         final ImageView img = (ImageView) view.findViewById(R.id.img);
         btnContainer = (LinearLayout) view.findViewById(R.id.btn_container);
-        Button button1 = (Button) view.findViewById(R.id.button1);
-//        Button button2 = (Button) view.findViewById(R.id.button2);
-//        Button button3 = (Button) view.findViewById(R.id.button3);
-//        Button button4 = (Button) view.findViewById(R.id.button4);
-//        img.setOnClickListener(clickListener);
-//        button1.setOnClickListener(clickListener);
-//        button2.setOnClickListener(clickListener);
-//        button3.setOnClickListener(clickListener);
-//        button4.setOnClickListener(clickListener);
+        Button floatBallOpenDialog = (Button) view.findViewById(R.id.float_ball_open_dialog);
+        Button floatBallOpenPopwindow = (Button) view.findViewById(R.id.float_ball_open_popwindow);
+        Button floatBallOpenWindow = (Button) view.findViewById(R.id.float_ball_open_window);
+        Button floatBallOpenDialogFragment = (Button) view.findViewById(R.id.float_ball_open_dialog_fragment);
+        img.setOnClickListener(clickListener);
+        floatBallOpenDialog.setOnClickListener(clickListener);
+        floatBallOpenPopwindow.setOnClickListener(clickListener);
+        floatBallOpenWindow.setOnClickListener(clickListener);
+        floatBallOpenDialogFragment.setOnClickListener(clickListener);
+
         img.setOnTouchListener(new OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
@@ -231,57 +248,146 @@ public class FloatView extends LinearLayout{
         windowManager.updateViewLayout(view, wmParams);
     }
 
-//    private OnClickListener clickListener = new OnClickListener() {
-//        @Override
-//        public void onClick(View v) {
-//            switch (v.getId()){
-//                case R.id.button1:
-//                    Log.e("ZZZ","1");
-//                    break;
-//                case R.id.button2:
-//                    Log.e("ZZZ","2");
-//                    break;
-//                case R.id.button3:
-//                    Log.e("ZZZ","3");
-//                    break;
-//                case button4:
-//                    Log.e("ZZZ","4");
-//                    break;
-//                case R.id.img:
-//                    //有动画
-////                    ValueAnimator widthAnim;
-////                    Log.e("XXX","宽度值："+ containerBtnWidth);
-////                    if(!expanded){
-////                        expanded = true;
-////                        widthAnim = ValueAnimator.ofFloat(0,containerBtnWidth);
-////                    }else{
-////                        expanded = false;
-////                        widthAnim = ValueAnimator.ofFloat(containerBtnWidth,0);
-////                    }
-////                    widthAnim.setDuration(1500);
-////                    widthAnim.setInterpolator(new LinearInterpolator());
-////                    widthAnim.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
-////                        @Override
-////                        public void onAnimationUpdate(ValueAnimator animation) {
-////                            ViewGroup.LayoutParams params = btnContainer.getLayoutParams();
-////                            params.width = (int)animation.getAnimatedValue();
-////                            btnContainer.setLayoutParams(params);
-////
-//////                            btnContainer.setScaleX((float)animation.getAnimatedValue());
-////                        }
-////                    });
-////                    widthAnim.start();
-//
-//                    //无动画
-//                    if(!expanded){
-//                        expanded = true;
-//                        btnContainer.setVisibility(View.VISIBLE);
-//                    }else{
-//                        expanded = false;
-//                        btnContainer.setVisibility(View.GONE);
-//                    }
-//                    break;
-//            }
-//        }
-//    };
+    /**
+     * 处理点击事件
+     */
+    private OnClickListener clickListener = new OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()){
+                case R.id.float_ball_open_dialog: //打开dialog
+                    openDialog(mActivity);
+                    break;
+                case R.id.float_ball_open_popwindow: //打开popwindow
+                    openPopwindow(mActivity);
+                    break;
+                case R.id.float_ball_open_window: //打开window
+                    openWindow(mActivity);
+                    break;
+                case R.id.float_ball_open_dialog_fragment: //打开dialogFragment
+                    openDialogFrament();
+                    break;
+                case R.id.img:
+                    showFloatMenu();
+                    break;
+            }
+        }
+    };
+
+    private void showFloatMenu(){
+        if(btnContainer.isShown()){
+            btnContainer.setVisibility(View.GONE);
+        }else {
+            btnContainer.setVisibility(View.VISIBLE);
+        }
+    }
+
+    /**
+     * 打开对话框
+     */
+    private void openDialog(final Context context) {
+        Dialog dialog = new Dialog(context, R.style.MyDialog_Float);
+        //加载布局
+        View viewDialog = LayoutInflater.from(context).inflate(R.layout.view_dialog_float, null,false);
+        dialog.setContentView(viewDialog);
+        dialog.setCanceledOnTouchOutside(true);
+        dialog.show();
+        //设置dialog的样式
+        Window window = dialog.getWindow();
+        window.setGravity(Gravity.START);
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+        WindowManager.LayoutParams params = window.getAttributes();
+        params.width = (int) (displayMetrics.widthPixels * 0.5);
+        params.height = (int) (displayMetrics.heightPixels * 0.99);
+        window.setAttributes(params);
+        //view事件处理
+        Button button = (Button) viewDialog.findViewById(R.id.loadImageBtn);
+        final ImageView imageView = (ImageView) viewDialog.findViewById(R.id.showMyImage);
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Picasso.with(context).load(imgUrl).into(imageView);
+            }
+        });
+    }
+
+    /**
+     * 打开popwindow
+     */
+    private void openPopwindow(final Context context) {
+        DisplayMetrics displayMetrics = getResources().getDisplayMetrics();
+
+        View rootView = LayoutInflater.from(context).inflate(R.layout.view_dialog_float, null);
+        PopupWindow popupWindow = new PopupWindow(rootView, (int) (displayMetrics.widthPixels * 0.5), (int) (displayMetrics.heightPixels * 0.99), true);
+        Button button = (Button) rootView.findViewById(R.id.loadImageBtn);
+        final ImageView imageView = (ImageView) rootView.findViewById(R.id.showMyImage);
+        popupWindow.setAnimationStyle(R.style.dialog_anim);
+        // 设置PopupWindow的背景
+        popupWindow.setBackgroundDrawable(new ColorDrawable(Color.parseColor("#aabbbbbb")));
+        // 设置PopupWindow是否能响应外部点击事件
+        popupWindow.setOutsideTouchable(true);
+        // 设置PopupWindow是否能响应点击事件
+        popupWindow.setTouchable(true);
+        popupWindow.showAsDropDown(new View(mActivity), 0, 0);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Glide.with(context).load(imgUrl).into(imageView);
+            }
+        });
+    }
+
+    /**
+     * 打开window
+     */
+    private void openWindow(final Context context) {
+        if (!myFloatBall.isShow()) {
+            myFloatBall.show();
+            myFloatBall.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    myFloatBall.dismiss();
+
+                    myFloatView = new MyFloatView(context);
+                    myFloatView.setLayout(R.layout.view_dialog_float);
+                    if (!myFloatView.isShow()) {
+                        myFloatView.show();
+                    }
+                }
+            });
+        }
+    }
+
+    /**
+     * 打开dialogFragment
+     */
+    private void openDialogFrament(){
+        MyCustomDialogFragment dialogFragment = new MyCustomDialogFragment();
+        FragmentTransaction transaction = mActivity.getSupportFragmentManager().beginTransaction();
+        transaction.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE);
+        dialogFragment.show(transaction, "df");
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent ev) {
+        if (myFloatView != null && myFloatView.isShow()) {
+            myFloatView.close();
+            myFloatBall.reShow();
+            return true;
+        }
+        return super.dispatchTouchEvent(ev);
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getAction() == KeyEvent.ACTION_DOWN || KeyEvent.KEYCODE_BACK == event.getKeyCode()) {
+            if (myFloatView != null && myFloatView.isShow()) {
+                myFloatView.close();
+                myFloatBall.reShow();
+                return true;
+            }
+        }
+        return super.dispatchKeyEvent(event);
+    }
 }

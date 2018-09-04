@@ -1,8 +1,8 @@
 package liwei.com.other.Float;
 
-import android.app.Activity;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.app.FragmentActivity;
 import android.view.View;
 import android.widget.Button;
 
@@ -11,7 +11,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
 
-public class FloatActivity extends Activity {
+public class FloatActivity extends FragmentActivity {
 
     @BindView(R.id.open_float_window)
     public Button openFloatWindow;

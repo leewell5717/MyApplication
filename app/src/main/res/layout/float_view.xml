@@ -16,37 +16,36 @@
 
     <LinearLayout
         android:id="@+id/btn_container"
-        android:layout_width="210dp"
+        android:layout_width="wrap_content"
         android:layout_height="50dp"
-        android:visibility="gone"
         android:orientation="horizontal">
 
         <Button
-            android:id="@+id/button1"
+            android:id="@+id/float_ball_open_dialog"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="按钮1" />
+            android:text="打开dialog" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/float_ball_open_popwindow"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="按钮2" />
+            android:text="打开popwindow" />
 
         <Button
-            android:id="@+id/button3"
+            android:id="@+id/float_ball_open_window"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="按钮3" />
+            android:text="打开window" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/float_ball_open_dialog_fragment"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="按钮4" />
+            android:text="打开dialogFragment" />
     </LinearLayout>
 </LinearLayout>
