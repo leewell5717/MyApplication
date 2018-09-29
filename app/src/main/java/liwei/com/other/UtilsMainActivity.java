@@ -25,6 +25,7 @@ import liwei.com.other.IJKPlayer.IJKPlayerActivity;
 import liwei.com.other.PasswordView.PasswordActivity;
 import liwei.com.other.RoundLayout.RoundLayoutActivity;
 import liwei.com.other.TakePictuer.CameraActivity;
+import liwei.com.other.cache.CacheTest;
 import liwei.com.other.circlemenu.CircleMenuActivity;
 import liwei.com.other.design.DesignActivity;
 import liwei.com.other.encrypt.EncryptActivity;
@@ -76,6 +77,8 @@ public class UtilsMainActivity extends Activity {
     public Button slidingMenuBtn;
     @BindView(R.id.pay_btn)
     public Button payBtn;
+    @BindView(R.id.cache_btn)
+    public Button cacheBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -104,82 +107,71 @@ public class UtilsMainActivity extends Activity {
     @OnClick({R.id.progress_bar_btn,R.id.gauss_blur_btn,R.id.expand_collapse_btn,R.id.ijkplayer_btn,R.id.design_btn,
             R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn,
             R.id.green_dao_btn,R.id.shimmer_btn,R.id.encryption_and_decryption_btn,R.id.circle_menu_btn,
-            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn,R.id.pay_btn})
+            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn,R.id.pay_btn,R.id.cache_btn})
     public void click(View v){
         Intent intent;
         switch (v.getId()){
             case R.id.progress_bar_btn:
                 intent = new Intent(UtilsMainActivity.this, ProgressBarActivity.class);
-                startActivity(intent);
                 break;
             case R.id.gauss_blur_btn:
                 intent = new Intent(UtilsMainActivity.this, GaussActivity.class);
-                startActivity(intent);
                 break;
             case R.id.expand_collapse_btn:
                 intent = new Intent(UtilsMainActivity.this, ExpandableTextviewMainActivity.class);
-                startActivity(intent);
                 break;
             case R.id.ijkplayer_btn:
                 intent = new Intent(UtilsMainActivity.this, IJKPlayerActivity.class);
-                startActivity(intent);
                 break;
             case R.id.design_btn:
                 intent = new Intent(UtilsMainActivity.this, DesignActivity.class);
-                startActivity(intent);
                 break;
             case R.id.kotlin_btn:
                 intent = new Intent(UtilsMainActivity.this, KotlinActivity.class);
-                startActivity(intent);
                 break;
             case R.id.round_layout_btn:
                 intent = new Intent(UtilsMainActivity.this, RoundLayoutActivity.class);
-                startActivity(intent);
                 break;
             case R.id.password_view_btn:
                 intent = new Intent(UtilsMainActivity.this, PasswordActivity.class);
-                startActivity(intent);
                 break;
             case R.id.float_window_btn:
                 intent = new Intent(UtilsMainActivity.this, FloatActivity.class);
-                startActivity(intent);
                 break;
             case R.id.take_picture_btn:
                 intent = new Intent(UtilsMainActivity.this, CameraActivity.class);
-                startActivity(intent);
                 break;
             case R.id.green_dao_btn:
                 intent = new Intent(UtilsMainActivity.this, GreenDaoActivity.class);
-                startActivity(intent);
                 break;
             case R.id.shimmer_btn:
                 intent = new Intent(UtilsMainActivity.this, ShimmerActivity.class);
-                startActivity(intent);
                 break;
             case R.id.encryption_and_decryption_btn:
                 intent = new Intent(UtilsMainActivity.this, EncryptActivity.class);
-                startActivity(intent);
                 break;
             case R.id.circle_menu_btn:
                 intent = new Intent(UtilsMainActivity.this, CircleMenuActivity.class);
-                startActivity(intent);
                 break;
             case R.id.base_activity_btn:
                 intent = new Intent(UtilsMainActivity.this, MyTestActivity.class);
-                startActivity(intent);
                 break;
             case R.id.date_time_btn:
                 intent = new Intent(UtilsMainActivity.this, CalendarDateTimeActivity.class);
-                startActivity(intent);
                 break;
             case R.id.sliding_menu_btn:
                 intent = new Intent(UtilsMainActivity.this, SlidingMenuActivity.class);
-                startActivity(intent);
                 break;
             case R.id.pay_btn:
                 intent = new Intent(UtilsMainActivity.this, MyPayActivity.class);
-                startActivity(intent);
                 break;
+            case R.id.cache_btn:
+                intent = new Intent(UtilsMainActivity.this, CacheTest.class);
+                break;
+            default:
+                Toast.makeText(UtilsMainActivity.this,"没有对应的Activity启动页面",Toast.LENGTH_SHORT).show();
+                return;
         }
+        startActivity(intent);
     }
 }

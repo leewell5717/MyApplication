@@ -73,6 +73,7 @@
         <activity android:name=".designmodel.builder.BuilderModelActivity"/>
         <activity android:name=".designmodel.prototype.ProtoTypeModelActivity"/>
         <activity android:name=".designmodel.proxy.ProxyActivity"/>
+        <activity android:name=".other.cache.CacheTest"/>
 
 
         <provider
