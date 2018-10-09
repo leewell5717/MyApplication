@@ -5,7 +5,7 @@ import android.util.Log;
 import static liwei.com.designmodel.proxy.ProxyActivity.Tag;
 
 /**
- * 具体的受代理着（老板）——老板并不直接打牌，而是让张三代替老板打
+ * 具体的受代理着（老板）——老板并不直接打牌，而是让张三(动态代理)/李四(静态代理)代替老板打
  */
 public class Boss implements Poker {
 

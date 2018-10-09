@@ -83,6 +83,8 @@ dependencies {
     compile 'com.github.Rukey7:IjkPlayerView:1.0.4'
     //greendao依赖
     compile 'org.greenrobot:greendao:3.2.0'
+    //依赖volley
+    compile 'com.android.volley:volley:1.1.1'
     //leakcanary依赖
 
     //    debugCompile 'com.squareup.leakcanary:leakcanary-android:1.5'

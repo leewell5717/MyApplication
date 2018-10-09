@@ -38,7 +38,7 @@
 
         <variable
             name="btnClick"
-            type="liwei.com.okhttp.OkhttpActivity"/>
+            type="liwei.com.network.okhttp.OkhttpActivity"/>
     </data>
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"

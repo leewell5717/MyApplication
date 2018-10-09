@@ -1,4 +1,4 @@
-package liwei.com.other.webview.api;
+package liwei.com.network.retrofit.utils;
 
 import android.app.Dialog;
 import android.app.ProgressDialog;
@@ -14,8 +14,6 @@ import java.net.UnknownHostException;
 
 import io.reactivex.Observer;
 import io.reactivex.disposables.Disposable;
-import liwei.com.network.retrofit.utils.ApiException;
-import liwei.com.network.retrofit.utils.RxManager;
 
 public abstract class RxObserver<T> implements Observer<T>{
 
@@ -26,7 +24,7 @@ public abstract class RxObserver<T> implements Observer<T>{
 
     private Dialog mDialog;
 
-    private liwei.com.network.retrofit.utils.RxManager mRxManager;
+    private RxManager mRxManager;
 
 
     /**
