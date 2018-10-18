@@ -4,13 +4,12 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
     <Button
-        android:id="@+id/shallow_clone"
+        android:id="@+id/copy_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="浅拷贝"/>
-    <Button
-        android:id="@+id/deep_clone"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="深拷贝"/>
+        android:text="复制"/>
+    <ImageView
+        android:id="@+id/show_image"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 </LinearLayout>
