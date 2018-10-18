@@ -1,32 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <Button
-        android:id="@+id/get_btn"
+    android:layout_height="match_parent">
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="get请求"/>
-    <Button
-        android:id="@+id/post_btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="post请求"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="get请求结果："/>
-    <TextView
-        android:id="@+id/get_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="post请求结果："/>
-    <TextView
-        android:id="@+id/post_result"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
-</LinearLayout>
+        android:orientation="vertical">
+        <Button
+            android:id="@+id/get_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="get请求" />
+        <Button
+            android:id="@+id/post_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="post请求" />
+        <Button
+            android:id="@+id/download_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="文件下载" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="get请求结果：" />
+        <TextView
+            android:id="@+id/get_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#ff0000" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="post请求结果：" />
+        <TextView
+            android:id="@+id/post_result"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+</ScrollView>
