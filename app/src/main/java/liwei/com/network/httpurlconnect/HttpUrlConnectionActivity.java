@@ -195,6 +195,8 @@ public class HttpUrlConnectionActivity extends Activity {
             connection.setConnectTimeout(10 * 1000);
             //设定请求方式(默认为get)
             connection.setRequestMethod("GET");
+            //添加cookie——1、使用下面的方法（没有验证过）；2、使用CookieManager
+//            connection.setRequestProperty("&quot;Cookie&quot;", "&quot;Cookie: &quot;" + "我的Cookie");
             //建立到远程对象的实际连接
             connection.connect();
 
