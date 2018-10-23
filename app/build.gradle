@@ -18,6 +18,9 @@ android {
         renderscriptTargetApi 19
         renderscriptSupportModeEnabled true
 
+
+        //方法数超过了65536，需要进行dex分包
+        multiDexEnabled true
     }
 
     //greendao配置

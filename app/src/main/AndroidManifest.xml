@@ -70,19 +70,21 @@
         <activity android:name=".designmodel.builder.BuilderModelActivity"/>
         <activity android:name=".designmodel.prototype.ProtoTypeModelActivity"/>
         <activity android:name=".designmodel.proxy.ProxyActivity"/>
+        <activity android:name=".designmodel.factory.FactoryModelActivity"/>
+        <activity android:name=".designmodel.strategy.StrategyModelActivity"/>
         <activity android:name=".other.cache.CacheTest"/>
         <activity android:name=".network.NetworkMainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".network.volley.VolleyActivity"/>
         <activity android:name=".network.okhttp.OkhttpActivity"/>
         <activity android:name=".network.retrofit.RetrofitActivity"/>
         <activity android:name=".network.httpurlconnect.HttpUrlConnectionActivity"/>
         <activity android:name=".designmodel.DesignModelMainActivity">
-
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity android:name=".other.plugin.PluginMainActivity">
 

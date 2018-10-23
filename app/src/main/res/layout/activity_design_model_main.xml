@@ -28,6 +28,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="代理模式"/>
+        <Button
+            android:id="@+id/factory_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="工厂模式"/>
+        <Button
+            android:id="@+id/strategy_model"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="策略模式"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="0dp"
