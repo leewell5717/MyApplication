@@ -72,6 +72,7 @@
         <activity android:name=".designmodel.proxy.ProxyActivity"/>
         <activity android:name=".designmodel.factory.FactoryModelActivity"/>
         <activity android:name=".designmodel.strategy.StrategyModelActivity"/>
+        <activity android:name=".designmodel.facade.FacadeModelActivity"/>
         <activity android:name=".other.cache.CacheTest"/>
         <activity android:name=".network.NetworkMainActivity">
 

@@ -14,6 +14,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
 import liwei.com.designmodel.builder.BuilderModelActivity;
+import liwei.com.designmodel.facade.FacadeModelActivity;
 import liwei.com.designmodel.factory.FactoryModelActivity;
 import liwei.com.designmodel.prototype.ProtoTypeModelActivity;
 import liwei.com.designmodel.proxy.ProxyActivity;
@@ -25,7 +26,7 @@ import liwei.com.designmodel.strategy.StrategyModelActivity;
  */
 public class DesignModelMainActivity extends Activity{
 
-    @BindViews({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model,R.id.factory_model,R.id.strategy_model})
+    @BindViews({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model,R.id.factory_model,R.id.strategy_model,R.id.facade_model})
     public List<Button> buttons;
 
     @Override
@@ -35,7 +36,7 @@ public class DesignModelMainActivity extends Activity{
         ButterKnife.bind(this);
     }
 
-    @OnClick({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model,R.id.factory_model,R.id.strategy_model})
+    @OnClick({R.id.singleton_model,R.id.builder_model,R.id.prototype_model,R.id.proxy_model,R.id.factory_model,R.id.strategy_model,R.id.facade_model})
     public void myOnclick(View view){
         switch (view.getId()){
             case R.id.singleton_model: //单例模式
@@ -55,6 +56,9 @@ public class DesignModelMainActivity extends Activity{
                 break;
             case R.id.strategy_model: //策略模式
                 startTheActivity(StrategyModelActivity.class);
+                break;
+            case R.id.facade_model: //外观模式
+                startTheActivity(FacadeModelActivity.class);
                 break;
         }
     }
