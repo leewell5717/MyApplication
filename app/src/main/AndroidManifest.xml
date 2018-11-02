@@ -74,6 +74,7 @@
         <activity android:name=".designmodel.strategy.StrategyModelActivity"/>
         <activity android:name=".designmodel.facade.FacadeModelActivity"/>
         <activity android:name=".designmodel.observer.ObserverModelActivity"/>
+        <activity android:name=".designmodel.adapter.AdapterModelActivity"/>
         <activity android:name=".other.cache.CacheTest"/>
         <activity android:name=".network.NetworkMainActivity">
 
