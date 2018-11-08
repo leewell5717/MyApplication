@@ -1,16 +1,23 @@
 package liwei.com;
 
 import android.content.Context;
+import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
+import android.util.Log;
 import android.view.Gravity;
 import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.UUID;
 
 import liwei.com.App.MyApplication;
@@ -178,5 +185,68 @@ public final class Utils {
         androidId = "" + android.provider.Settings.Secure.getString(context.getContentResolver(), android.provider.Settings.Secure.ANDROID_ID);
         UUID deviceUuid = new UUID(androidId.hashCode(), ((long)tmDevice.hashCode() << 32) | tmSerial.hashCode());
         return deviceUuid.toString();
+    }
+
+    /**
+     * 从assets拷贝文件到SD卡
+     *
+     *
+        String filaName = "outter.apk"; //文件名
+        String assetsPath = "external"; //assets下的目录
+        String sdcardPath = Environment.getExternalStorageDirectory().getPath() + File.separator + "liwei"; //SD卡上的地址
+        调用示例：copyFileFromAssetsToSDCard(MainActivity.this,filaName,assetsPath,sdcardPath)
+     *
+     * @param context 当前上下文
+     * @param fileName 文件名（包括后缀名）
+     * @param sdcardPath 保存在SD卡上的路径
+     * @return 1：context为null；2：文件名或路径为空；3：文件已存在；-1：IO错误；0：成功
+     */
+    public static int copyFileFromAssetsToSDCard(Context context, String fileName,String assetsPath, String sdcardPath){
+        if(context == null){
+            Log.e("XXX","context为null");
+            return 1;
+        }
+        if(TextUtils.isEmpty(fileName) || TextUtils.isEmpty(sdcardPath)){
+            Log.e("XXX","文件名或路径为空");
+            return 2;
+        }
+        File filePath = new File(sdcardPath);
+        if(!filePath.exists()){
+            filePath.mkdirs();
+        }
+
+        String fullPath = sdcardPath + File.separator + fileName;
+        File file = new File(fullPath);
+        if(file.exists()){
+            Log.e("XXX","文件已存在");
+            return 3;
+        }
+
+        try {
+            OutputStream outputStream = new FileOutputStream(fullPath);
+            InputStream inputStream;
+
+            if(TextUtils.isEmpty(assetsPath)){ //访问assets中的单个文件
+                inputStream = context.getAssets().open(fileName);
+            }else{ //访问带有目录下面的文件
+                inputStream = context.getAssets().open(assetsPath + "/" + fileName);
+            }
+            byte[] buffer = new byte[1024];
+            int length;
+            while ((length = inputStream.read(buffer)) != -1){
+                outputStream.write(buffer,0,length);
+            }
+            outputStream.flush();
+            inputStream.close();
+            outputStream.close();
+            return 0;
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
+        return -1;
     }
 }
