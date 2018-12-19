@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import liwei.com.R;
-import liwei.com.Utils;
+import liwei.com.utils.Utils;
 
 public class MyTestActivity extends MyBaseActivity {
 

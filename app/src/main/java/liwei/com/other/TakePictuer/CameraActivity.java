@@ -34,7 +34,7 @@ import java.util.List;
 
 import io.reactivex.functions.Consumer;
 import liwei.com.R;
-import liwei.com.Utils;
+import liwei.com.utils.Utils;
 
 /**
  * @author liwei

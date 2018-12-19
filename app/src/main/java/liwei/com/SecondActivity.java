@@ -3,6 +3,8 @@ package liwei.com;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.view.View;
 import android.widget.Button;
 
@@ -24,7 +26,6 @@ public class SecondActivity extends Activity {
 
     @OnClick({R.id.button2})
     public void click(View view){
-        startActivity(new Intent(SecondActivity.this,MainActivity.class));
-        finish();
+        startActivity(new Intent(ThirdActivity.action));
     }
 }

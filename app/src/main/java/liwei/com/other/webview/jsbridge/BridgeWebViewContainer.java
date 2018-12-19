@@ -24,7 +24,7 @@ import java.util.List;
 import java.util.Map;
 
 import liwei.com.R;
-import liwei.com.Utils;
+import liwei.com.utils.Utils;
 import liwei.com.other.webview.bean.ViewLayoutHandle;
 import liwei.com.other.webview.facebook.ShimmerFrameLayout;
 

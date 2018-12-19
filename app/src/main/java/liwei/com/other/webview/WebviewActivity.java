@@ -33,7 +33,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import liwei.com.R;
-import liwei.com.Utils;
+import liwei.com.utils.Utils;
 import liwei.com.other.webview.api.Api;
 import liwei.com.other.webview.api.DownLoadManager;
 import liwei.com.other.webview.api.RxFunction;

@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
-import liwei.com.Utils;
+import liwei.com.utils.Utils;
 import liwei.com.other.encrypt.utils.Base64Utils;
 import liwei.com.other.encrypt.utils.RSAUtils;
 

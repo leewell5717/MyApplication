@@ -1,4 +1,4 @@
-package liwei.com;
+package liwei.com.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
