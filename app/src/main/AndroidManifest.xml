@@ -101,12 +101,16 @@
 
         </activity>
         <activity android:name=".algorithm.AlgorithmActivity">
+
+        </activity>
+        <activity android:name="liwei.com.other.titlebaralphagradient.TitleBarAlphaGradientActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
+        <activity android:name=".other.titlebaralphagradient.scrollview.UseScrollviewActivity"/>
+        <activity android:name=".other.titlebaralphagradient.listview.UseListviewActivity"/>
 
         <provider
             android:name="android.support.v4.content.FileProvider"
