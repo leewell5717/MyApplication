@@ -28,6 +28,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+        <activity android:name="liwei.com.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name="liwei.com.other.UtilsMainActivity">
 
         </activity>
@@ -104,13 +110,25 @@
 
         </activity>
         <activity android:name="liwei.com.other.titlebaralphagradient.TitleBarAlphaGradientActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+
         </activity>
         <activity android:name=".other.titlebaralphagradient.scrollview.UseScrollviewActivity"/>
         <activity android:name=".other.titlebaralphagradient.listview.UseListviewActivity"/>
+        <activity android:name="liwei.com.other.custominstallfinished.InstallJumpActivity" android:launchMode="singleTask">
+            <intent-filter>
+                <action android:name="liwei.com.StartAction"/>
+                <data android:mimeType="application/vnd.android.package-archive" />
+            </intent-filter>
+        </activity>
+
+        <receiver android:name=".broadcast.AppInstallReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.PACKAGE_ADDED" />
+                <action android:name="android.intent.action.PACKAGE_REPLACED" />
+                <action android:name="android.intent.action.PACKAGE_REMOVED" />
+                <data android:scheme="package" />
+            </intent-filter>
+        </receiver>
 
         <provider
             android:name="android.support.v4.content.FileProvider"

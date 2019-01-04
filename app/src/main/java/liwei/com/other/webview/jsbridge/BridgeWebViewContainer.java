@@ -24,9 +24,9 @@ import java.util.List;
 import java.util.Map;
 
 import liwei.com.R;
-import liwei.com.utils.Utils;
 import liwei.com.other.webview.bean.ViewLayoutHandle;
 import liwei.com.other.webview.facebook.ShimmerFrameLayout;
+import liwei.com.utils.ScreenUtils;
 
 @SuppressLint("SetJavaScriptEnabled")
 public class BridgeWebViewContainer extends FrameLayout implements WebViewJavascriptBridge {
@@ -120,8 +120,8 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
 
         LayoutParams lp;
         if (viewLayoutHandle.getLayoutType() == 1) { //坐标布局
-            lp = new LayoutParams(Utils.px2dip(context, viewLayoutHandle.getWidth()),
-                    Utils.px2dip(context, viewLayoutHandle.getHeight()));
+            lp = new LayoutParams(ScreenUtils.px2dip(context, viewLayoutHandle.getWidth()),
+                    ScreenUtils.px2dip(context, viewLayoutHandle.getHeight()));
             lp.gravity = Gravity.CENTER;
         } else { //比例布局
             lp = new LayoutParams((int) (screenWidth * viewLayoutHandle.getWidthScale()),
@@ -146,7 +146,7 @@ public class BridgeWebViewContainer extends FrameLayout implements WebViewJavasc
         drawable.getPaint().setStyle(Paint.Style.STROKE);//描边
         v.setBackground(drawable);
 
-        LayoutParams lp = new LayoutParams(Utils.dp2px(context,400), Utils.dp2px(context,300));
+        LayoutParams lp = new LayoutParams(ScreenUtils.dp2px(context,400), ScreenUtils.dp2px(context,300));
         addView(rootView, lp);
 //        addView(v, lp);
     }

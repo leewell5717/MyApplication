@@ -11,12 +11,13 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.OnClick;
-import liwei.com.utils.Md5Util;
 import liwei.com.R;
-import liwei.com.utils.Utils;
 import liwei.com.network.okhttp.api.OkHttpBaseCallback;
 import liwei.com.network.okhttp.api.OkHttpHelper;
 import liwei.com.other.mybase.MyBaseActivity;
+import liwei.com.utils.Md5Util;
+import liwei.com.utils.ScreenUtils;
+import liwei.com.utils.Utils;
 import okhttp3.Request;
 import okhttp3.Response;
 
@@ -60,12 +61,12 @@ public class MyPayActivity extends MyBaseActivity{
     public void onClick(View v){
         String inputMoney = chargeMoney.getText().toString().trim();
         if(TextUtils.isEmpty(inputMoney)){
-            Utils.showToastCenter("请输入充值金额");
+            ScreenUtils.showToastCenter("请输入充值金额");
             return;
         }
         double money = Double.parseDouble(inputMoney);
         if(money < 0){
-            Utils.showToastCenter("充值金额不能小于0");
+            ScreenUtils.showToastCenter("充值金额不能小于0");
             return;
         }
         switch (v.getId()){
@@ -111,7 +112,7 @@ public class MyPayActivity extends MyBaseActivity{
             @Override
             public void onSuccess(Response response, BaseBean<List<PayWayBean>> baseBean) {
                 if(baseBean.getError() != 0){
-                    Utils.showToastCenter("充值初始化失败");
+                    ScreenUtils.showToastCenter("充值初始化失败");
                 }
             }
             @Override

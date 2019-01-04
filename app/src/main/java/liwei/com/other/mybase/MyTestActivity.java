@@ -4,7 +4,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import liwei.com.R;
-import liwei.com.utils.Utils;
+import liwei.com.utils.ScreenUtils;
 
 public class MyTestActivity extends MyBaseActivity {
 
@@ -24,7 +24,7 @@ public class MyTestActivity extends MyBaseActivity {
 
     @Override
     public void doAction() {
-        Utils.showToastCenter("点击了ActionBtn");
+        ScreenUtils.showToastCenter("点击了ActionBtn");
     }
 
 }

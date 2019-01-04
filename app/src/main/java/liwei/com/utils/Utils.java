@@ -1,15 +1,12 @@
 package liwei.com.utils;
 
 import android.content.Context;
-import android.content.res.AssetManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Base64;
 import android.util.Log;
-import android.view.Gravity;
-import android.widget.Toast;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -20,14 +17,10 @@ import java.io.InputStream;
 import java.io.OutputStream;
 import java.util.UUID;
 
-import liwei.com.App.MyApplication;
-
 /**
  * 工具类
  */
 public final class Utils {
-
-    private static Toast toast = null;
 
     /**
      * 图片转base64
@@ -93,77 +86,6 @@ public final class Utils {
      */
     public static String bitmapToString(Bitmap bitmap) {
         return Base64.encodeToString(getBitmapByte(bitmap), Base64.DEFAULT);
-    }
-
-    /**
-     * 自定义Toast，避免重复，界面中部弹出
-     */
-    public static void showToastCenter(String msg) {
-        if(TextUtils.isEmpty(msg)){
-            msg = "null";
-        }
-        if (toast == null) {
-            toast = Toast.makeText(MyApplication.getApp(), msg, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.CENTER, 0, 0);
-        } else {
-            toast.setGravity(Gravity.CENTER, 0, 0);
-            toast.setText(msg);
-        }
-        toast.show();
-    }
-
-    /**
-     * 自定义Toast,避免重复,界面底部弹出
-     */
-    public static void showToastBottom(String msg) {
-        if(TextUtils.isEmpty(msg)){
-            msg = "null";
-        }
-        if (toast == null) {
-            toast = Toast.makeText(MyApplication.getApp(), msg, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-        } else {
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-            toast.setText(msg);
-        }
-        toast.show();
-    }
-
-    /**
-     * 自定义Toast,避免重复,界面底部弹出
-     */
-    public static void showToastBottom(int stringId) {
-        String content;
-        try {
-            content = MyApplication.getApp().getResources().getString(stringId);
-        } catch (Exception e) {
-            content = String.valueOf(stringId);
-        }
-
-        if (toast == null) {
-            toast = Toast.makeText(MyApplication.getApp(), content, Toast.LENGTH_SHORT);
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-        } else {
-            toast.setGravity(Gravity.BOTTOM, 0, 0);
-            toast.setText(content);
-        }
-        toast.show();
-    }
-
-    /**
-     * px转dp
-     */
-    public static int px2dip(Context mContext, float px) {
-        float scale = mContext.getResources().getDisplayMetrics().density;
-        return (int) (px / scale + 0.5f);
-    }
-
-    /**
-     * dp转px
-     */
-    public static int dp2px(Context mContext, float dp){
-        float scale = mContext.getResources().getDisplayMetrics().density;
-        return (int) (dp * scale + 0.5f);
     }
 
     /**

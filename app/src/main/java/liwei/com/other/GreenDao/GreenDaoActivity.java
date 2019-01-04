@@ -16,7 +16,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
-import liwei.com.utils.Utils;
+import liwei.com.utils.ScreenUtils;
 
 public class GreenDaoActivity extends Activity {
 
@@ -77,9 +77,9 @@ public class GreenDaoActivity extends Activity {
         shop.setPrice(prices[random.nextInt(4)]);
         shop.setSell_num(sealed[random.nextInt(4)]);
         if(ShopDaoUtils.insertShop(shop)){
-            Utils.showToastBottom("插入成功");
+            ScreenUtils.showToastBottom("插入成功");
         }else{
-            Utils.showToastBottom("插入失败");
+            ScreenUtils.showToastBottom("插入失败");
         }
         adapter.addDatas(shop);
     }
@@ -89,7 +89,7 @@ public class GreenDaoActivity extends Activity {
      */
     private void delete(){
         if(adapter.getCount() == 0){
-            Utils.showToastCenter("没有数据可删除了");
+            ScreenUtils.showToastCenter("没有数据可删除了");
             return;
         }
         ShopDaoUtils.deleteAllShop();
@@ -105,7 +105,7 @@ public class GreenDaoActivity extends Activity {
         }
         shopList = ShopDaoUtils.queryAll();
         if(shopList.size() == 0){
-            Utils.showToastCenter("没有数据");
+            ScreenUtils.showToastCenter("没有数据");
             return;
         }
         adapter.deleteAllDatas();
@@ -117,7 +117,7 @@ public class GreenDaoActivity extends Activity {
      */
     private void modify(){
         if(adapter.getCount() == 0){
-            Utils.showToastBottom("没有可修改的数据");
+            ScreenUtils.showToastBottom("没有可修改的数据");
             return;
         }
         Shop shop1 = adapter.getItem(adapter.getCount() - 1);

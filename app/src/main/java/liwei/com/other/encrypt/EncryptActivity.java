@@ -16,9 +16,9 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import liwei.com.R;
-import liwei.com.utils.Utils;
 import liwei.com.other.encrypt.utils.Base64Utils;
 import liwei.com.other.encrypt.utils.RSAUtils;
+import liwei.com.utils.ScreenUtils;
 
 public class EncryptActivity extends Activity {
 
@@ -67,7 +67,7 @@ public class EncryptActivity extends Activity {
             case R.id.encrypt_btn: //加密
                 String source = encryptPlaintext.getText().toString().trim();
                 if(TextUtils.isEmpty(source)){
-                    Utils.showToastCenter("请输入明文");
+                    ScreenUtils.showToastCenter("请输入明文");
                     return;
                 }
                 try {

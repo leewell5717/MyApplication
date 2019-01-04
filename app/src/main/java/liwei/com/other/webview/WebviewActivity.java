@@ -33,7 +33,6 @@ import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import liwei.com.R;
-import liwei.com.utils.Utils;
 import liwei.com.other.webview.api.Api;
 import liwei.com.other.webview.api.DownLoadManager;
 import liwei.com.other.webview.api.RxFunction;
@@ -50,6 +49,7 @@ import liwei.com.other.webview.jsbridge.BridgeWebViewContainer;
 import liwei.com.other.webview.jsbridge.CallBackFunction;
 import liwei.com.other.webview.jsbridge.DefaultHandler;
 import liwei.com.other.webview.slice.Slice;
+import liwei.com.utils.ScreenUtils;
 import okhttp3.ResponseBody;
 
 public class WebviewActivity extends Activity{
@@ -226,7 +226,7 @@ public class WebviewActivity extends Activity{
         }else{
             for(int i=0;i<btnList.size();i++){
                 LinearLayout.LayoutParams textLP = new LinearLayout.LayoutParams(0,LinearLayout.LayoutParams.MATCH_PARENT,1);
-                LinearLayout.LayoutParams lineLP = new LinearLayout.LayoutParams(Utils.dp2px(context,1),LinearLayout.LayoutParams.MATCH_PARENT);
+                LinearLayout.LayoutParams lineLP = new LinearLayout.LayoutParams(ScreenUtils.dp2px(context,1),LinearLayout.LayoutParams.MATCH_PARENT);
 
                 TextView textBtn = new TextView(context);
                 textBtn.setText(btnList.get(i));
@@ -342,8 +342,8 @@ public class WebviewActivity extends Activity{
         sliceRoot.setRadius(viewLayoutHandle.getCornerRadius());
         Window dialogWindow = dialog.getWindow();
         final WindowManager.LayoutParams lp = dialogWindow.getAttributes();
-        lp.x = Utils.px2dip(WebviewActivity.this,viewLayoutHandle.getX());
-        lp.y = Utils.px2dip(WebviewActivity.this,viewLayoutHandle.getY());
+        lp.x = ScreenUtils.px2dip(WebviewActivity.this,viewLayoutHandle.getX());
+        lp.y = ScreenUtils.px2dip(WebviewActivity.this,viewLayoutHandle.getY());
         if(viewLayoutHandle.getLayoutType() == 1){ //坐标布局
             lp.width = (int)viewLayoutHandle.getWidth();
             lp.height = (int)viewLayoutHandle.getHeight();
