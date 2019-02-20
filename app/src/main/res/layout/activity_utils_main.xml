@@ -115,5 +115,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="LruCache/DiskLruCache" />
+        <Button
+            android:id="@+id/webview_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="webview的使用" />
     </LinearLayout>
 </LinearLayout>

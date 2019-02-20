@@ -27,6 +27,7 @@ import liwei.com.other.RoundLayout.RoundLayoutActivity;
 import liwei.com.other.TakePictuer.CameraActivity;
 import liwei.com.other.cache.CacheTest;
 import liwei.com.other.circlemenu.CircleMenuActivity;
+import liwei.com.other.webviewtest.WebviewTestActivity;
 import liwei.com.other.design.DesignActivity;
 import liwei.com.other.encrypt.EncryptActivity;
 import liwei.com.other.gauss.GaussActivity;
@@ -79,6 +80,8 @@ public class UtilsMainActivity extends Activity {
     public Button payBtn;
     @BindView(R.id.cache_btn)
     public Button cacheBtn;
+    @BindView(R.id.webview_btn)
+    public Button webviewBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,7 +110,7 @@ public class UtilsMainActivity extends Activity {
     @OnClick({R.id.progress_bar_btn,R.id.gauss_blur_btn,R.id.expand_collapse_btn,R.id.ijkplayer_btn,R.id.design_btn,
             R.id.round_layout_btn,R.id.kotlin_btn,R.id.password_view_btn,R.id.float_window_btn,R.id.take_picture_btn,
             R.id.green_dao_btn,R.id.shimmer_btn,R.id.encryption_and_decryption_btn,R.id.circle_menu_btn,
-            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn,R.id.pay_btn,R.id.cache_btn})
+            R.id.base_activity_btn,R.id.date_time_btn,R.id.sliding_menu_btn,R.id.pay_btn,R.id.cache_btn,R.id.webview_btn})
     public void click(View v){
         Intent intent;
         switch (v.getId()){
@@ -167,6 +170,9 @@ public class UtilsMainActivity extends Activity {
                 break;
             case R.id.cache_btn:
                 intent = new Intent(UtilsMainActivity.this, CacheTest.class);
+                break;
+            case R.id.webview_btn:
+                intent = new Intent(UtilsMainActivity.this, WebviewTestActivity.class);
                 break;
             default:
                 Toast.makeText(UtilsMainActivity.this,"没有对应的Activity启动页面",Toast.LENGTH_SHORT).show();

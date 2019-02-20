@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>我的网页</title>
+	<link rel="icon" href="ic_launcher.png" type="img/x-ico" />
+	<style>
+		h1 {
+			color:red;
+		}
+		h2 {
+			color:green;
+		}
+		h3{
+			color:blue;
+		}
+		h4{
+			color:gray;
+		}
+		h5{
+			color:#ff00ff;
+		}
+		p{
+			color:#00ffff;
+		}
+	</style>
+</head>
+<body>
+	<h1>这是我的网页，h1标签</h1>
+	<h2>这是我的网页，h2标签</h2>
+	<h3>这是我的网页，h3标签</h3>
+	<h4>这是我的网页，h4标签</h4>
+	<h5>这是我的网页，h5标签</h5>
+	<p>这是我的网页，p标签</p>
+	<button id="myBtn1" onclick="toAndroid()">调用Android原生方法</button>
+	<button id="myBtn2" onclick="jsAlert()">js的alert弹窗</button>
+	<button id="myBtn3" onclick="consoleLog()">js的console.log日志</button>
+	<button id="myBtn4" onclick="jsConfirm()">js的confirm弹窗</button>
+	<button id="myBtn5" onclick="jsPrompt()">js的prompt弹窗</button>
+	
+	<script type="text/javascript">
+		function toAndroid(){
+			MyAndroid.hello("我是来自于JS");
+		}
+
+		function AndroidToJs1(){
+			alert("Android调用js端的方法");
+		}
+
+		function AndroidToJs2(msg){
+			alert("Android调用js端的方法，传入参数：" + msg);
+		}
+
+		function AndroidToJs3(a,b){
+			alert("Android调用js端的方法，传入参数：" + a + "和" + b);
+			return a + b;
+		}
+		
+		function jsAlert(){
+			alert("这是js的alert弹窗");
+		}
+		
+		function consoleLog(){
+			console.log("打印console.log日志");
+		}
+		
+		function jsConfirm(){
+			var msg = confirm("你喜欢js吗？");
+			if(msg){
+				alert("喜欢");
+				console.log("喜欢");
+			}else{
+				alert("不喜欢");
+				console.log("不喜欢");
+			}
+		}
+		
+		function jsPrompt(){
+			var myname = prompt("请输入你的姓名:");
+			if(myname != null){
+				alert("你好：" + myname);
+			}else{
+				alert("你好朋友");
+			}
+		}
+	</script>
+</body>
+</html>

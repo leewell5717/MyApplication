@@ -29,13 +29,13 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name="liwei.com.MainActivity">
+
+        </activity>
+        <activity android:name="liwei.com.other.UtilsMainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity>
-        <activity android:name="liwei.com.other.UtilsMainActivity">
-
         </activity>
         <activity
             android:name=".SecondActivity"
@@ -97,6 +97,7 @@
         <activity android:name=".network.okhttp.OkhttpActivity"/>
         <activity android:name=".network.retrofit.RetrofitActivity"/>
         <activity android:name=".network.httpurlconnect.HttpUrlConnectionActivity"/>
+        <activity android:name=".other.webviewtest.WebviewTestActivity"/>
         <activity android:name=".designmodel.DesignModelMainActivity">
 
         </activity>
